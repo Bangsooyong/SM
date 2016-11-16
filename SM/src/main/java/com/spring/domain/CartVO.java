@@ -1,14 +1,14 @@
 package com.spring.domain;
 
 public class CartVO {
-	private int c_no;
-	private String b_id;
-	private int p_no;
-	private String p_name;
-	private int p_price;
-	private int buy_cnt;
-	private String o_cont;
-	private int buy_no;
+	private int c_no;//카트번호
+	private String b_id;//구매자아이디
+	private int p_no;//제품번호
+	private String p_name;//제품명
+	private int p_price;//제품가격
+	private int buy_cnt;//선택한수량
+	private String o_cont;//선택한옵션내용
+	private int buy_no;//주문번호는 주문테이블에 먼저 insert된후 카트테이블에 insert해줌
 	
 	public CartVO() {}
 
