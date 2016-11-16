@@ -1,29 +1,23 @@
 package com.spring.domain;
 
-import java.util.Date;
-
-public class BuyVO {
-
-	private int buy_no;//주문번호
+public class CartVO {
+	private int c_no;//카트번호
 	private String b_id;//구매자아이디
 	private int p_no;//제품번호
 	private String p_name;//제품명
 	private int p_price;//제품가격
 	private int buy_cnt;//선택한수량
 	private String o_cont;//선택한옵션내용
-	private Date buy_date;//주문일자
-	private String delivery_zip;//우편번호
-	private String delivery_addr;//주소
-	private int buy_status;//주문상태
+	private int buy_no;//주문번호는 주문테이블에 먼저 insert된후 카트테이블에 insert해줌
 	
-	public BuyVO() {}
+	public CartVO() {}
 
-	public int getBuy_no() {
-		return buy_no;
+	public int getC_no() {
+		return c_no;
 	}
 
-	public void setBuy_no(int buy_no) {
-		this.buy_no = buy_no;
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 
 	public String getB_id() {
@@ -74,39 +68,13 @@ public class BuyVO {
 		this.o_cont = o_cont;
 	}
 
-	public Date getBuy_date() {
-		return buy_date;
+	public int getBuy_no() {
+		return buy_no;
 	}
 
-	public void setBuy_date(Date buy_date) {
-		this.buy_date = buy_date;
+	public void setBuy_no(int buy_no) {
+		this.buy_no = buy_no;
 	}
-
-	public String getDelivery_zip() {
-		return delivery_zip;
-	}
-
-	public void setDelivery_zip(String delivery_zip) {
-		this.delivery_zip = delivery_zip;
-	}
-
-	public String getDelivery_addr() {
-		return delivery_addr;
-	}
-
-	public void setDelivery_addr(String delivery_addr) {
-		this.delivery_addr = delivery_addr;
-	}
-
-	public int getBuy_status() {
-		return buy_status;
-	}
-
-	public void setBuy_status(int buy_status) {
-		this.buy_status = buy_status;
-	}
-	
-	
 	
 	
 }
