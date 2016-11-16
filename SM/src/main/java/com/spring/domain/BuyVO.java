@@ -4,17 +4,17 @@ import java.util.Date;
 
 public class BuyVO {
 
-	private int buy_no;
-	private String b_id;
-	private int p_no;
-	private String p_name;
-	private int p_price;
-	private int buy_cnt;
-	private String o_cont;
-	private Date buy_date;
-	private String delivery_zip;
-	private String delivery_addr;
-	private int buy_status;
+	private int buy_no;//주문번호
+	private String b_id;//구매자아이디
+	private int p_no;//제품번호
+	private String p_name;//제품명
+	private int p_price;//제품가격
+	private int buy_cnt;//선택한수량
+	private String o_cont;//선택한옵션내용
+	private Date buy_date;//주문일자
+	private String delivery_zip;//우편번호
+	private String delivery_addr;//주소
+	private int buy_status;//주문상태
 	
 	public BuyVO() {}
 
