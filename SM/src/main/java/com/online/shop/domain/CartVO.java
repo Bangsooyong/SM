@@ -1,4 +1,4 @@
-package com.spring.domain;
+package com.online.shop.domain;
 
 public class CartVO {
 	private int c_no;//카트번호

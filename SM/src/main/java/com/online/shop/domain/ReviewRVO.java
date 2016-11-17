@@ -1,4 +1,4 @@
-package com.spring.domain;
+package com.online.shop.domain;
 
 import java.util.Date;
 
