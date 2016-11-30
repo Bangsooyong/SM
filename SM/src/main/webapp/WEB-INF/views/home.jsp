@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Main</title>
+<title>SHOP</title>
 </head>
 <body>
 	<a href="#">구매자 회원가입</a> <!-- #부분에서 RequestMapping해서 사용 -->
@@ -13,10 +13,12 @@
 	<a href="#">판매자 로그인</a><br/><br/>
 	<a href="#">구매자 마이페이지</a>
 	<a href="#">판매자 마이페이지</a>
-	<a href="#">관리지 마이페이지</a><br/><br/>
-	<a href="#">판매자 샵</a><br/><br/>
+	<a href="admin/admin_mypage">관리지 마이페이지</a><br/><br/>
+	<a href="admin/seller_admin_main">판매자 샵</a><br/><br/>
 	<a href="#">장바구니</a><br/><br/>
 	<a href="#">고객센터</a><br/><br/>
+	<a href="board/qna">상품QNA</a>
+	<a href="BoardRev/review">상품후기</a><br/><br/> 
 	
 </body>
 </html>

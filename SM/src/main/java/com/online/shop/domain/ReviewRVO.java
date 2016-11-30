@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class ReviewRVO {
 
-	private int rev_r_no;
-	private String s_id;
-	private String rev_r_title;
-	private String rev_r_cont;
-	private Date rev_r_reg;
-	private int rev_no;
+	private int rev_r_no; // 답글 입력시 생성되는 PK
+	private String s_id; // 판매자 아이디 없어도될듯..
+	private String rev_r_cont; // 판매자 답글 내용
+	private Date rev_r_reg; // 저장 시간
+	private int rev_no; // 후기 게시판 번호
+	private int rev_reply; // 답변여부
 	
 	public ReviewRVO() {}
 
@@ -27,14 +27,6 @@ public class ReviewRVO {
 
 	public void setS_id(String s_id) {
 		this.s_id = s_id;
-	}
-
-	public String getRev_r_title() {
-		return rev_r_title;
-	}
-
-	public void setRev_r_title(String rev_r_title) {
-		this.rev_r_title = rev_r_title;
 	}
 
 	public String getRev_r_cont() {
@@ -60,8 +52,14 @@ public class ReviewRVO {
 	public void setRev_no(int rev_no) {
 		this.rev_no = rev_no;
 	}
-	
-	
-	
+
+	public int getRev_reply() {
+		return rev_reply;
+	}
+
+	public void setRev_reply(int rev_reply) {
+		this.rev_reply = rev_reply;
+	}
 	
 }
+

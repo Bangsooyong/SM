@@ -15,10 +15,12 @@ public class ProductVO {
 	private Date p_reg;
 	private int p_favo;
 	private int p_sale_cnt;
+	private int p_acc; // 상품 승인
+	
+	public ProductVO(){}
 	
 	public ProductVO(int p_no, String p_name, int p_price, String p_cate1, String p_cate2, int p_stock, String s_id,
-			int p_dis_rate, Date p_reg, int p_favo, int p_sale_cnt) {
-		super();
+			int p_dis_rate, Date p_reg, int p_favo, int p_sale_cnt, int p_acc) {
 		this.p_no = p_no;
 		this.p_name = p_name;
 		this.p_price = p_price;
@@ -30,6 +32,7 @@ public class ProductVO {
 		this.p_reg = p_reg;
 		this.p_favo = p_favo;
 		this.p_sale_cnt = p_sale_cnt;
+		this.p_acc = p_acc;
 	}
 
 	public int getP_no() {
@@ -118,6 +121,14 @@ public class ProductVO {
 
 	public void setP_sale_cnt(int p_sale_cnt) {
 		this.p_sale_cnt = p_sale_cnt;
+	}
+
+	public int getP_acc() {
+		return p_acc;
+	}
+
+	public void setP_acc(int p_acc) {
+		this.p_acc = p_acc;
 	}
 	
 	

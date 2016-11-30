@@ -2,7 +2,7 @@ package com.online.shop.domain;
 
 import java.util.Date;
 
-public class BuyerVO {
+public class BuyerVO{
 
 	// 멤버 변수
 	private int b_no;

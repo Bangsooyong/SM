@@ -6,12 +6,21 @@ public class ReviewVO {
 
 	private int rev_no;
 	private String b_id;
-	private String rev_title;
-	private String rev_content;
-	private Date rev_regdate;
+	private int rev_score;
+	private String rev_cont;
+	private Date rev_reg;
 	private int p_no;
+	private int rev_reply;
 	
 	public ReviewVO() {}
+
+	public int getRev_reply() {
+		return rev_reply;
+	}
+
+	public void setRev_reply(int rev_reply) {
+		this.rev_reply = rev_reply;
+	}
 
 	public int getRev_no() {
 		return rev_no;
@@ -29,28 +38,30 @@ public class ReviewVO {
 		this.b_id = b_id;
 	}
 
-	public String getRev_title() {
-		return rev_title;
+	
+	
+	public int getRev_score() {
+		return rev_score;
 	}
 
-	public void setRev_title(String rev_title) {
-		this.rev_title = rev_title;
+	public void setRev_score(int rev_score) {
+		this.rev_score = rev_score;
 	}
 
-	public String getRev_content() {
-		return rev_content;
+	public String getRev_cont() {
+		return rev_cont;
 	}
 
-	public void setRev_content(String rev_content) {
-		this.rev_content = rev_content;
+	public void setRev_cont(String rev_cont) {
+		this.rev_cont = rev_cont;
 	}
 
-	public Date getRev_regdate() {
-		return rev_regdate;
+	public Date getRev_reg() {
+		return rev_reg;
 	}
 
-	public void setRev_regdate(Date rev_regdate) {
-		this.rev_regdate = rev_regdate;
+	public void setRev_reg(Date rev_reg) {
+		this.rev_reg = rev_reg;
 	}
 
 	public int getP_no() {

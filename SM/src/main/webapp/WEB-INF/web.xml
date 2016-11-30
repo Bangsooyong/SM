@@ -59,4 +59,6 @@
 	    <filter-name>httpMethod</filter-name>
 	    <url-pattern>/*</url-pattern><!-- 클라이언트가 요청한 특정 URI에 대해서 필터링을 할 때 사용 -->
 	</filter-mapping>
+	
+	
 </web-app>
