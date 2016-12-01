@@ -40,18 +40,18 @@ li {
 			<li><a href="listview">회원 목록</a></li>
 		</ol>
 
-	</div>
+	</div> 
 	<div>
 	<h3>판매물 등록 승인</h3> 
 	<select name = "searchType">
 		<option value="n" <c:out value="${cri.searchType == null?'selected':'' }"/>>---</option>
 		<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':'' }"/>>판매자 ID</option>
-		<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>상품번호</option>
+		<option value="b" <c:out value="${cri.searchType eq 'b'?'selected':'' }"/>>상품번호</option>
 		<option value="p" <c:out value="${cri.searchType eq 'p'?'selected':'' }"/>>상품명</option>
-		<option value="in" <c:out value="${cri.searchType eq 'in'?'selected':'' }"/>>판매자 ID or 상품번호</option>
+		<option value="ib" <c:out value="${cri.searchType eq 'ib'?'selected':'' }"/>>판매자 ID or 상품번호</option>
 		<option value="ip" <c:out value="${cri.searchType eq 'ip'?'selected':'' }"/>>판매자 ID or 상품명</option>
-		<option value="np" <c:out value="${cri.searchType eq 'np'?'selected':'' }"/>>상품번호 or 상품명</option>
-		<option value="inp" <c:out value="${cri.searchType eq 'inp'?'selected':'' }"/>>판매자 ID or 상품번호 or 상품명</option>
+		<option value="bp" <c:out value="${cri.searchType eq 'bp'?'selected':'' }"/>>상품번호 or 상품명</option>
+		<option value="ibp" <c:out value="${cri.searchType eq 'ibp'?'selected':'' }"/>>판매자 ID or 상품번호 or 상품명</option>
 	</select>
 	
 	<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
@@ -66,7 +66,7 @@ li {
 			<th>상품명(옵션)</th>
 			<th>승인여부</th>
 		</tr>
-		<c:forEach var="pvo" items="${productList}">
+		<c:forEach var="pvo" items="${productList }">
 			<c:forEach var="svo" items="${sellerList }">
 		
 			<tr>
@@ -85,17 +85,18 @@ li {
 	</table>
 	
 	<ul class="pageLinks" >
-			<c:if test="${pageMaker.hasPrev }">
-				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
+			<li id="main"><a href="${pageMaker.startPageNum }">처음으로</a></li>
+			<c:if test="${searchpageMaker.hasPrev }">
+				<li id="page"><a href="${searchpageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 			</c:if>
 
-			<c:forEach begin="${pageMaker.startPageNum }"
-				end="${pageMaker.endPageNum }" var="num">
+			<c:forEach begin="${searchpageMaker.startPageNum }"
+				end="${searchpageMaker.endPageNum }" var="num">
 				<li id="page"><a href="${num }">${num }</a></li>
 			</c:forEach>
 
-			<c:if test="${pageMaker.hasNext }">
-				<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
+			<c:if test="${searchpageMaker.hasNext }">
+				<li id="page"><a href="${searchpageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 			</c:if>
 
 		</ul>
@@ -104,8 +105,10 @@ li {
 	사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
 		<form id="pageForm">
 			
-			<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
-			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
+			<input type="hidden" name="page" value="${searchpageMaker.criteria.page }" /> 
+			<input type="hidden" name="perPage" value="${searchpageMaker.criteria.perPage }" />
+			<input type="hidden" name="searchType" value="${searchpageMaker.criteria.searchType }"/>
+			<input type="hidden" name="keyword" value="${cri.keyword }">
 		</form>
 
 
@@ -122,6 +125,23 @@ $(document).ready(function() {
 
 	// 클래스 pageLinks 안의 li 태그 안의 a 태그를 찾아서 click 이벤트를 커스터마이징
 	$('.pageLinks li a').click(function() {
+		event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
+		// pageForm 안에 있는 name="page"인 요소를 찾아서
+		// 이동할 페이지 번호를 세팅
+		var targetPage = $(this).attr('href');
+		console.log('targetPage=' + targetPage);
+		frm.find('[name="page"]').val(targetPage);
+		frm.find('[name="searchType"]').val(
+				$("select option:selected").val());
+		// 페이징 화면으로 보내기 위한 action 정보
+		frm.attr('action', 'seller_accept_product_searchlist');
+		// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)
+		frm.attr('method', 'get');
+		// 폼 양식을 서버로 전송
+		frm.submit();
+	});
+	
+	$('#main a').click(function() {
 		event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
 		// pageForm 안에 있는 name="page"인 요소를 찾아서
 		// 이동할 페이지 번호를 세팅

@@ -16,7 +16,7 @@ public interface SellerDAO {
 	// 검색 기능을 위한 select문
 	public abstract List<SellerVO> listSearch(SearchPageCriteria cri);
 	// 검색 후 paging 처리를 위한 전체 페이지 계산
-	public int listSearchCount(SearchPageCriteria cri);
+	public abstract int listSearchCount(SearchPageCriteria cri);
 	
 	
 	

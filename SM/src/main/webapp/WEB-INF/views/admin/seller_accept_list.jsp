@@ -46,13 +46,13 @@ li {
 	<h3>판매자 가입 승인</h3> 
 	<select name = "searchType">
 		<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-		<option value="b" <c:out value="${cri.searchType eq 'b'?'selected':'' }"/>>회원번호</option>
+		<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>회원번호</option>
 		<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':'' }"/>>판매자 ID</option>
 		<option value="e" <c:out value="${cri.searchType eq 'e'?'selected':'' }"/>>이메일</option>
-		<option value="bi" <c:out value="${cri.searchType eq 'bi'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
-		<option value="be" <c:out value="${cri.searchType eq 'be'?'selected':'' }"/>>회원번호 or 이메일</option>
+		<option value="ni" <c:out value="${cri.searchType eq 'ni'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
+		<option value="ne" <c:out value="${cri.searchType eq 'ne'?'selected':'' }"/>>회원번호 or 이메일</option>
 		<option value="ie" <c:out value="${cri.searchType eq 'ie'?'selected':'' }"/>>판매자 ID or 이메일</option>
-		<option value="bie" <c:out value="${cri.searchType eq 'bie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
+		<option value="nie" <c:out value="${cri.searchType eq 'nie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
 		
 		 
 	</select> 
@@ -102,10 +102,8 @@ li {
 사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
 		<form id="pageForm">
 			
-			<input type="hidden" name="page" value="${searchpageMaker.criteria.page }" /> 
-			<input type="hidden" name="perPage" value="${searchpageMaker.criteria.perPage }" />
-			<input type="hidden" name="searchType" value="${searchpageMaker.criteria.searchType }"/>
-			<input type="hidden" name="keyword" value="${cri.keyword }">
+			<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
+			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
 		</form>
 
 
@@ -118,6 +116,7 @@ li {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
+		
 		var frm = $('#pageForm');
 
 		// 클래스 pageLinks 안의 li 태그 안의 a 태그를 찾아서 click 이벤트를 커스터마이징

@@ -125,12 +125,10 @@ li {
 사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
 		<form id="pageForm">
 
-			<input type="hidden" name="page"
-				value="${searchpageMaker.criteria.page }" /> <input type="hidden"
-				name="perPage" value="${searchpageMaker.criteria.perPage }" /> <input
-				type="hidden" name="searchType"
-				value="${searchpageMaker.criteria.searchType}" /> <input
-				type="hidden" name="keyword" value="${cri.keyword }" />
+			<input type="hidden" name="page" value="${searchpageMaker.criteria.page }" /> 
+			<input type="hidden" name="perPage" value="${searchpageMaker.criteria.perPage }" /> 
+			<input type="hidden" name="searchType"	value="${searchpageMaker.criteria.searchType}" />
+		    <input type="hidden" name="keyword" value="${cri.keyword }" />
 		</form>
 
 	</div>
@@ -239,11 +237,12 @@ li {
 						"click",
 						function(event) {
 
-							self.location = "searchlist" + "?page=1"
-									+ "&perPage=5" + "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword="
-									+ encodeURI($('#keywordInput').val());
+							self.location = "searchlist"
+							+ "?page=1"
+							+ "&perPage=5" 
+							+ "&searchType="
+							+ $("select option:selected").val()
+							+ "&keyword=" + encodeURI($('#keywordInput').val());
 
 						});
 

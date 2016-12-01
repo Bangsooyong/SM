@@ -129,6 +129,8 @@ li {
 			var targetPage = $(this).attr('href');
 			console.log('targetPage=' + targetPage);
 			frm.find('[name="page"]').val(targetPage);
+			frm.find('[name="searchType"]').val(
+					$("select option:selected").val());
 			// 페이징 화면으로 보내기 위한 action 정보
 			frm.attr('action', 'seller_accept_searchlist');
 			// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)

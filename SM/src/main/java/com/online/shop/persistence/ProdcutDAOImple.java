@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.online.shop.domain.ProductVO;
+import com.online.shop.pageutil.PageCriteria;
+import com.online.shop.pageutil.SearchPageCriteria;
 
 @Repository
 public class ProdcutDAOImple implements ProductDAO {
@@ -27,5 +29,27 @@ public class ProdcutDAOImple implements ProductDAO {
 		
 		return list;
 	}
+	
+	@Override
+	public int getNumOfRecords() {
+		return sqlSession.selectOne(NAMESPACE + ".productTotalCount");
+	}
+	
+	@Override
+	public List<ProductVO> select(PageCriteria cri) {
+		return sqlSession.selectList(NAMESPACE + ".productListPage", cri);
+	}
+	
+	@Override
+	public int listSearchCount(SearchPageCriteria cri) {
+		return sqlSession.selectOne(NAMESPACE + ".productListSearchCount", cri);
+	}
+	
+	@Override
+	public List<ProductVO> select(SearchPageCriteria cri) {
+		return sqlSession.selectList(NAMESPACE + ".productListSearch", cri);
+	}
+	
+	
 
 }
