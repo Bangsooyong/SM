@@ -61,6 +61,7 @@
 					 <c:forEach begin="1" end="${list.rev_score }" var="item">
 					 <a class="on" name = "rev_score">★</a>
 					 </c:forEach>
+					 
 					 <c:forEach begin="${list.rev_score }" end="4" var="item2">
 					 <a name = "rev_score">★</a>
 					 </c:forEach>
@@ -87,7 +88,7 @@
 					<c:if test="${list.rev_reply eq 0 }">
 						<div modData="${state.index }">
 						<form id="frm${state.index }" method="post" >
-							<input type="text" name="rev_r_cont" placeholder="답글작성" maxlength="100"/>
+							<input type="text" name="rev_r_cont" placeholder="답글작성" maxlength="100" required/>
 							
 							<input type="hidden" name="rev_no" value="${list.rev_no}"/>
 							<input type="hidden" name="s_id" value="sellerId1"/>
@@ -211,9 +212,9 @@
 			frm.attr('action', 'deleteReply');
 			frm.attr('mehtod', 'post');
 			frm.submit();
-			
 		});
 		
+
 	});
 	
 	var frm = $('#pageForm');
@@ -233,6 +234,15 @@
 		// 폼 양식을 서버로 전송
 		frm.submit();
 	});
+
+		if ('${insert_reply}' == 'success') {
+			alert('답변 등록 성공');
+		} else if ('${insert_reply}' == 'fail') {
+			alert('답변 등록  실패!');
+		}
+		
+	})
+
 	</script>
 
 

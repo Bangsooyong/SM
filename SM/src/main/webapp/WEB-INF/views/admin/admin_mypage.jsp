@@ -9,13 +9,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Shop</title>
 <style type="text/css">
-div {
+
+#div1 {
 	float: left;
 	margin-right: 100px;
+	height: 500px;
+}
+
+#div2 {
+	margin-bottom: 20px;
 }
 
 li {
 	list-style-type: none;
+}
+
+caption {
+	margin-bottom: 10px;
 }
 #category{
 	position:absolute; 
@@ -39,7 +49,7 @@ li {
 	<h1>
 		<a href="admin_mypage">관리자페이지</a>
 	</h1>
-	<div>
+	<div id="div1">
 		<h3>판매관리</h3>
 		<ol>
 			<li><a href="buyr">전체 주문 요청 내역</a></li>
@@ -56,8 +66,12 @@ li {
 
 	</div>
 
+
 	<div id="category">
 		
+
+	<div id="div2">
+
 		<table>
 			<tr>
 				<th>[새로운 주문내역]</th>
@@ -65,7 +79,7 @@ li {
 				<th>[판매자 승인 요청]</th>
 				<th>[판매몰 승인 요청]</th>
 			</tr>
-			<tr>
+			<tr style="font-size: 35px;">
 				<td id = "newReq" onMouseover="this.style.color='pink';"
 					onMouseout="this.style.color='blue';"
 				style="text-align: center; color: blue;
@@ -88,7 +102,7 @@ li {
 			</tr>
 		</table>
 	</div>
-	
+
 	<div id="maindiv">
 		<table id="totalReq">
 			<caption><b>주문 요청 내역(최근 5건)</b></caption>
@@ -125,7 +139,7 @@ li {
 		</table>
 		
 		<table id = "newTotalReq" style="display: none;">
-			<caption><b>새로운 주문 요청 내역</b></caption>
+			<caption><b>[새로운 주문 요청 내역]</b></caption>
 			<tr>
 				<th>주문번호</th>
 				<th>주문날짜</th>
@@ -186,7 +200,7 @@ li {
 		</table>
 		
 		<table id = "buyToday" style="display: none;">
-			<caption><b>오늘의 판매 내역</b></caption>
+			<caption><b>[오늘의 판매 내역]</b></caption>
 			<tr>
 				<th>주문번호</th>
 				<th>주문날짜</th>
@@ -211,7 +225,7 @@ li {
 		</table>
 		
 		<table id = "sellerAccess" style="display: none;">
-			<caption><b>판매자 승인 요청</b></caption>
+			<caption><b>[판매자 승인 요청]</b></caption>
 			<tr>
 				<th>회원번호</th>
 				<th>판매자 ID</th>
@@ -234,7 +248,7 @@ li {
 		</table>
 		
 			<table id = "productAccess" style="display: none;">
-			<caption><b>판매물 승인 요청</b></caption>
+			<caption><b>[판매물 승인 요청]</b></caption>
 			<tr>
 				<th>회원번호</th>
 				<th>판매자</th>

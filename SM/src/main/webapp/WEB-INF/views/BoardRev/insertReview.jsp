@@ -74,7 +74,7 @@
 
 			<tr>
 				<th scope="row">후기 내용 &emsp;</th>
-				<td><textarea rows="5" cols="60" id = "rev_cont" name="rev_cont"></textarea></td>
+				<td><textarea rows="5" cols="60" id = "rev_cont" name="rev_cont" required></textarea></td>
 			</tr>
 
 		</table>

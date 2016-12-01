@@ -16,7 +16,7 @@ public class BuyVO {
 	private String delivery_addr;//주소
 	private int buy_status;//주문상태
 
-	private Date buy_comp;//배송완료 후 구매 확정인 상태
+	private Date buy_comp;//배송완료 후 구매 확정인 상태의 날짜
 
 	private String s_id; //판매자 아이디
 	

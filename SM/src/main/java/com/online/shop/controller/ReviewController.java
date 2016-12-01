@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.ReviewRVO;
@@ -69,9 +70,22 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="insertReply", method=RequestMethod.POST)
-	public String insertReplyPost(ReviewRVO vo) {
+	public String insertReplyPost(ReviewRVO vo, RedirectAttributes attr) {
 
-		int result = dao.insertRevReply(vo);
+		//int result = dao.insertRevReply(vo);
+		int result=0;
+		if(!(vo.getRev_r_cont().equals(""))) {
+			result = dao.insertRevReply(vo);
+			System.out.println("result cont:"+result);
+		} else{
+			result = 0;
+		}
+
+		if (result == 1) {
+			attr.addFlashAttribute("insert_reply", "success");
+		} else {
+			attr.addFlashAttribute("insert_reply", "fail");
+		}
 
 		return "redirect:review";
 	}
