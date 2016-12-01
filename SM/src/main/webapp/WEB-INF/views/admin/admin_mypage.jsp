@@ -27,17 +27,7 @@ li {
 caption {
 	margin-bottom: 10px;
 }
-#category{
-	position:absolute; 
-	display : inline-block;
-	margin-left: 333px;
-	 
-}
-#maindiv{
-	position: absolute;
-	margin-top : 70px;
-	margin-left: 333px;
-}
+
    
 </style>
 
@@ -66,10 +56,6 @@ caption {
 		</ol>
 
 	</div>
-
-
-	<div id="category">
-		
 
 	<div id="div2">
 

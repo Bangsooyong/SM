@@ -214,7 +214,6 @@
 			frm.submit();
 		});
 		
-
 	});
 	
 	var frm = $('#pageForm');
@@ -241,7 +240,7 @@
 			alert('답변 등록  실패!');
 		}
 		
-	})
+	
 
 	</script>
 
