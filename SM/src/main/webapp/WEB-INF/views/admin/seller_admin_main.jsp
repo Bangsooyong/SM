@@ -13,6 +13,9 @@
 
 <h1>판매자 홈관리</h1>
 
+<h3>
+	<a href="/shop">홈</a>
+</h3>
 <h3>판매자 리스트</h3>
 
 <input type="button" value="Search"> <input type="text">

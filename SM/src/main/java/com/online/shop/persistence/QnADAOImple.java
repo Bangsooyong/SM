@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.QnaVO;
+import com.online.shop.pageutil.PageCriteria;
 
 @Repository
 public class QnADAOImple implements QnADAO {
@@ -64,6 +65,16 @@ public class QnADAOImple implements QnADAO {
 			result = session.update(NAMESPACE+".update-insert-qnar", vo);
 		}
 		return result;
+	}
+	
+	@Override
+	public int getNumOfRecordsQna() {
+		return session.selectOne(NAMESPACE + ".qnaTotalCount");
+	}
+	
+	@Override
+	public List<QnaVO> selectQna(PageCriteria cri) {
+		return session.selectList(NAMESPACE + ".qnaListPage", cri);
 	}
 	
 }

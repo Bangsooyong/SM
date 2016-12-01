@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.ReviewRVO;
 import com.online.shop.domain.ReviewVO;
+import com.online.shop.pageutil.PageCriteria;
 
 @Repository
 public class RevDAOImple implements RevDAO {
@@ -62,5 +63,16 @@ public class RevDAOImple implements RevDAO {
 		}
 		return result;
 	}
+	
+	@Override
+	public int getNumOfPageReview() {
+		return session.selectOne(NAMESPACE + ".reviewTotalCount");
+	}
+	
+	@Override
+	public List<ReviewVO> selectRev(PageCriteria cri) {
+		return session.selectList(NAMESPACE + ".reviewListPage", cri);
+	}
+	
 	
 }

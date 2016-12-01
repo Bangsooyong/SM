@@ -25,6 +25,9 @@ li {
 </head>
 <body>
 
+	<h3>
+		<a href="/shop">权</a>
+	</h3>
 	<h1><a href="admin_mypage">包府磊其捞瘤</a></h1>
 	<div>
 		<h3>魄概包府</h3>

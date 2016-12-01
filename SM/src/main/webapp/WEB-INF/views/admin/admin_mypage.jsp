@@ -17,6 +17,18 @@ div {
 li {
 	list-style-type: none;
 }
+#category{
+	position:absolute; 
+	display : inline-block;
+	margin-left: 333px;
+	 
+}
+#maindiv{
+	position: absolute;
+	margin-top : 70px;
+	margin-left: 333px;
+}
+   
 </style>
 
 </head>
@@ -44,7 +56,7 @@ li {
 
 	</div>
 
-	<div>
+	<div id="category">
 		
 		<table>
 			<tr>

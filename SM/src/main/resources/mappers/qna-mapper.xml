@@ -34,5 +34,24 @@
 	<delete id="delete-qnar">
 		delete from s_tbl_qna_r where qna_no = #{qna_no} and qna_r_no = #{qna_r_no}
 	</delete>
+	
+	<!-- qna 페이징 처리를 위한 쿼리문 -->
+	<!-- 전체 페이지수 계산 -->
+	<select id="qnaTotalCount" resultType="Integer">
+		select count(*) from s_tbl_qna
+	</select>
+	
+	<!-- qna 페이징처리를 위한 쿼리문 -->
+	<select id="qnaListPage" resultType="com.online.shop.domain.QnaVO">
+		select b.*
+		from (
+			select rownum rn, a.*
+			from (
+				select * from s_tbl_qna 
+			) a
+		) b
+		where rn between #{start} and #{end}
+	</select>
+	
 
  </mapper>
