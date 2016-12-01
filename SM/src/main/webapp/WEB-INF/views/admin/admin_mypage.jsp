@@ -9,9 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Shop</title>
 <style type="text/css">
-div {
+
+#div1 {
 	float: left;
 	margin-right: 100px;
+	height: 500px;
+}
+
+#div2 {
+	margin-bottom: 20px;
 }
 
 li {
@@ -27,7 +33,7 @@ li {
 	<h1>
 		<a href="admin_mypage">관리자페이지</a>
 	</h1>
-	<div>
+	<div id="div1">
 		<h3>판매관리</h3>
 		<ol>
 			<li><a href="buyr">전체 주문 요청 내역</a></li>
@@ -44,8 +50,7 @@ li {
 
 	</div>
 
-	<div>
-		
+	<div id="div2">
 		<table>
 			<tr>
 				<th>[새로운 주문내역]</th>
@@ -76,7 +81,7 @@ li {
 			</tr>
 		</table>
 	</div>
-	
+
 	<div id="maindiv">
 		<table id="totalReq">
 			<caption><b>주문 요청 내역(최근 5건)</b></caption>
