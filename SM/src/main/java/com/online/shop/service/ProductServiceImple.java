@@ -18,5 +18,10 @@ public class ProductServiceImple implements ProductService {
 	public List<ProductVO> read() {
 		return productDao.select();
 	}
+	
+	@Override
+	public List<ProductVO> selectAcc() {
+		return productDao.selectAcc();
+	}
 
 }

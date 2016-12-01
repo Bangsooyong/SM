@@ -49,6 +49,10 @@ public class SellerDAOImple implements SellerDAO {
 	public int listSearchCount(SearchPageCriteria cri) {
 		return sqlSession.selectOne(NAMESPACE + ".sellerListSearchCount", cri);
 	}
-
+	
+	@Override
+	public List<SellerVO> selectAccess() {
+		return sqlSession.selectList(NAMESPACE + ".selectAccess");
+	}
 
 }

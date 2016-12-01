@@ -21,4 +21,13 @@
     <select id = "selectByBuyf" resultType="com.online.shop.domain.BuyVO">
 	select * from s_tbl_Buy where buy_status = 5 order by buy_date desc
 	</select>
+	
+	<select id = "selectByBuyRequest" resultType="com.online.shop.domain.BuyVO">
+	select * from S_TBL_BUY where BUY_STATUS between 0 and 2 order by buy_date desc
+	</select>
+	
+	<select id = "selectByBuyToday" resultType="com.online.shop.domain.BuyVO">
+	select * from S_TBL_BUY where to_char(buy_comp,'yy/MM/dd') like #{today} and BUY_STATUS = 5 order by buy_date desc
+	</select>
+	
  </mapper>

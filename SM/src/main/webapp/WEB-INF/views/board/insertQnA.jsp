@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert QnA</title>
 </head>
 <body>
@@ -11,40 +11,40 @@
 	<form action="insertQnA" method="POST">
 		<table>
 			<tr>
-				<th scope="row">¹®ÀÇ À¯Çü &emsp;</th>
+				<th scope="row">ë¬¸ì˜ ìœ í˜• &emsp;</th>
 
 				<td><label for="qna_type0"> <input type="radio"
-						name="qna_type" id="qna_type0" value="0" /> »óÇ°
+						name="qna_type" id="qna_type0" value="0" checked/> ìƒí’ˆ
 				</label>
 
 				<label for="qna_type1"> <input type="radio"
-						name="qna_type" id="qna_type1" value="1" /> ¹è¼Û
+						name="qna_type" id="qna_type1" value="1" /> ë°°ì†¡
 				</label>
 
 				<label for="qna_type2"> <input type="radio"
-						name="qna_type" id="qna_type2" value="2" /> ¹ÝÇ°/Ãë¼Ò
+						name="qna_type" id="qna_type2" value="2" /> ë°˜í’ˆ/ì·¨ì†Œ
 				</label>
 
 				<label for="qna_type3"> <input type="radio"
-						name="qna_type" id="qna_type3" value="3" /> ±³È¯/º¯°æ
+						name="qna_type" id="qna_type3" value="3" /> êµí™˜/ë³€ê²½
 				</label>
 
 				<label for="qna_type4"> <input type="radio"
-						name="qna_type" id="qna_type4" value="4" /> ±âÅ¸
+						name="qna_type" id="qna_type4" value="4" /> ê¸°íƒ€
 				</label>
 				
 				</td>
 			</tr>
 
 			<tr>
-				<th scope="row">¹®ÀÇ ³»¿ë &emsp;</th>
-				<td><textarea rows="10" cols="80" id = "qna_cont" name="qna_cont"></textarea></td>
+				<th scope="row">ë¬¸ì˜ ë‚´ìš© &emsp;</th>
+				<td><textarea rows="10" cols="80" id = "qna_cont" name="qna_cont" required></textarea></td>
 			</tr>
 
 			<tr>
-				<th scope="row">´äº¯¼ö½Å ¸ÞÀÏ &emsp;</th>
+				<th scope="row">ë‹µë³€ìˆ˜ì‹  ë©”ì¼ &emsp;</th>
 				<td><input type="text" id="qnaImail" name="b_email"
-					placeholder="ÀÌ¸ÞÀÏÁÖ¼Ò ÀÔ·Â" />b_id¸¦ ÀÌ¿ëÇØ emailÁÖ¼Ò¸¦ select¹Þ¾Æ¿Í ÀÚµ¿ÀÔ·Â±â´É..±¸ÇöÇØ¾ßÇÔ</td>
+					placeholder="ì´ë©”ì¼ì£¼ì†Œ ìž…ë ¥" />b_idë¥¼ ì´ìš©í•´ emailì£¼ì†Œë¥¼ selectë°›ì•„ì™€ ìžë™ìž…ë ¥ê¸°ëŠ¥..êµ¬í˜„í•´ì•¼í•¨</td>
 			</tr>
 
 		</table>
@@ -55,7 +55,7 @@
 <!-- 		<input type="hidden" name="qna_reply" value = "0" /> -->
 		
 		<div>
-			<input type="submit" value="µî·Ï">
+			<input type="submit" value="ë“±ë¡">
 		</div>
 	</form>
 </body>

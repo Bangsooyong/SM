@@ -18,6 +18,7 @@ public interface SellerDAO {
 	// 검색 후 paging 처리를 위한 전체 페이지 계산
 	public int listSearchCount(SearchPageCriteria cri);
 	
-	
+	//db에서 미승인된 판매자 회원 뽑아옴
+	public abstract List<SellerVO> selectAccess();
 	
 }

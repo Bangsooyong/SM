@@ -41,4 +41,9 @@ public class SellerServiceImple implements SellerService {
 		return sellerDao.listSearchCount(cri);
 	}
 
+	@Override
+	public List<SellerVO> searchAccess() {
+		return sellerDao.selectAccess();
+	}
+	
 }

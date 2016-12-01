@@ -27,5 +27,10 @@ public class ProdcutDAOImple implements ProductDAO {
 		
 		return list;
 	}
+	
+	@Override
+	public List<ProductVO> selectAcc() {
+		return sqlSession.selectList(NAMESPACE + ".productAccess");
+	}
 
 }

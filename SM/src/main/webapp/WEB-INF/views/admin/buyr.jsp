@@ -61,7 +61,7 @@ li {
 							pattern="yyyy년 MM월 dd일" />&emsp;&emsp;</td>
 					<td>${list.p_name }&emsp;(${list.o_cont })</td>
 					<td>${list.p_price }원</td>
-					<td>판매자ID&emsp;</td>
+					<td>${list.s_id }&emsp;</td>
 					<td>${list.b_id }&emsp;</td>
 					<c:if test="${list.buy_status eq '0' }">
 					<td>입금대기</td>

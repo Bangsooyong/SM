@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.QnaVO;
@@ -51,11 +52,21 @@ public class QnAController {
 	}
 	
 	@RequestMapping(value="insertReply", method=RequestMethod.POST)
-	public String insertReplyPost(QnaRVO vo) {
-		//System.out.println(vo.getQna_r_cont() +"//" +vo.getS_id());
-		//System.out.println(vo.getQna_no()+"//"+vo.getQna_reply());
-		int result = dao.insertQnAR(vo);
-		System.out.println("result cont:"+result);
+	public String insertReplyPost(QnaRVO vo, RedirectAttributes attr) {
+		int result=0;
+		if(!(vo.getQna_r_cont().equals(""))) {
+			result = dao.insertQnAR(vo);
+			System.out.println("result cont:"+result);
+		} else{
+			result = 0;
+		}
+
+		if (result == 1) {
+			attr.addFlashAttribute("insert_reply", "success");
+		} else {
+			attr.addFlashAttribute("insert_reply", "fail");
+		}
+		
 		return "redirect:qna";
 	}
 	

@@ -18,60 +18,6 @@ public class AdminDAOImple implements AdminDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public int selectBySeller() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insertProduct() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insertImage() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insertOption() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int selectByProduct() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int selectByImage() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int insertCart() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<CartVO> selectByCart() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int insertBuy() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public List<BuyVO> selectByBuy() {
 		return sqlSession.selectList(NAMEPACE+".selectByBuy");
 	}
@@ -91,4 +37,14 @@ public class AdminDAOImple implements AdminDAO {
 		return sqlSession.selectList(NAMEPACE+".selectByBuyf");
 	}
 
+	@Override
+	public List<BuyVO> selectByBuyRequest() {
+		return sqlSession.selectList(NAMEPACE+".selectByBuyRequest");
+	}
+	
+	@Override
+	public List<BuyVO> selecyByBuyToday(String today) {
+		return sqlSession.selectList(NAMEPACE+".selectByBuyToday", today);
+	}
+	
 }

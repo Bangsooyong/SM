@@ -52,20 +52,21 @@ li {
 			<th>상품명(옵션)</th>
 			<th>승인여부</th>
 		</tr>
-		<c:forEach var="pvo" items="${prodcutList }">
+			<c:forEach var="pvo" items="${prodcutList }">
 			<c:forEach var="svo" items="${sellerList }">
-		
-			<tr>
-				<td>${svo.s_no}</td>
-				<td>${pvo.s_id}</td>
-				<td>${pvo.p_no }</td>
-				<td>${pvo.p_name}<!--옵션정보 추가해줘야함 정훈이 코드 참고 --></td>
-				<td><c:if test="${pvo.p_acc == 0 }">미승인</c:if>
-					<c:if test="${pvo.p_acc == 1 }">승인</c:if>
-				</td>
-			</tr>
+				<tr>
+				<c:if test="${pvo.s_id == svo.s_id }">
+					<td>${svo.s_no}</td>
+					<td>${pvo.s_id}</td>
+					<td>${pvo.p_no }</td>
+					<td>${pvo.p_name}<!--옵션정보 추가해줘야함 정훈이 코드 참고 --></td>
+					<td><c:if test="${pvo.p_acc == 0 }">미승인</c:if>
+						<c:if test="${pvo.p_acc == 1 }">승인</c:if>
+					</td>
+				</c:if>
+				</tr>
 			</c:forEach>
-		</c:forEach>
+			</c:forEach>
 	</table>
 
 

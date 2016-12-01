@@ -84,13 +84,13 @@
 						<form id = "frm${state.index }" method="post">
 						&emsp;&emsp;&emsp;<b>판매자 답변</b><br/>
 							<textarea cols="25" rows="3" name="qna_r_cont" id="replyCont"
-								placeholder="답변내용입력"></textarea>
+								placeholder="답변내용입력" required></textarea>
 							
 							<input type="hidden" name="s_id" id="s_id" value="sellerId" /> 
 							<input type="hidden" name="qna_no" id="qna_no" value="${list.qna_no }" />
 							</form>						
+						<button type="submit" id="insertReply">저장</button>
 							
-							<button type="submit" id="insertReply">저장</button>
 						</div>
 
 					</c:if>
@@ -148,9 +148,9 @@
 			$('#insertReply').click(function() {
 				var x = $(this).parent().attr('modData');
 				var frm = $('#frm'+x);
-				frm.attr('action', 'insertReply');
+ 				frm.attr('action', 'insertReply');
 				frm.attr('mehtod', 'post');
-				frm.submit();
+				frm.submit(); 
 				
 			});
 			
@@ -159,6 +159,7 @@
 				var x = $(this).parent().attr('modData');
 				alert("답변 내용 수정 가능! 완료 버튼 활성화")
 				$('#replyCont'+x).attr("readonly", false);
+				$('#replyCont'+x).attr("required", true);
 				$('.updateReply1').show();
 				$(this).hide();
 			});
@@ -195,6 +196,11 @@
 				
 			});
 			
+			if ('${insert_reply}' == 'success') {
+				alert('답변 등록 성공');
+			} else if ('${insert_reply}' == 'fail') {
+				alert('답변 등록  실패!');
+			}
 			
 		})
 	</script>

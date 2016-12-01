@@ -3,7 +3,7 @@ package com.online.shop.domain;
 import java.util.Date;
 
 public class BuyVO {
-
+	// 주문상태  0입금대기 1결제확인중 2결제완료 3배송준비 4배송중 5배송완료
 	private int buy_no;//주문번호
 	private String b_id;//구매자아이디
 	private int p_no;//제품번호
@@ -15,6 +15,8 @@ public class BuyVO {
 	private String delivery_zip;//우편번호
 	private String delivery_addr;//주소
 	private int buy_status;//주문상태
+	private Date buy_comp;//배송완료 후 구매 확정인 상태
+	private String s_id; //판매자 아이디
 	
 	public BuyVO() {}
 
@@ -105,8 +107,23 @@ public class BuyVO {
 	public void setBuy_status(int buy_status) {
 		this.buy_status = buy_status;
 	}
-	
-	
+
+	public Date getBuy_comp() {
+		return buy_comp;
+	}
+
+	public void setBuy_comp(Date buy_comp) {
+		this.buy_comp = buy_comp;
+	}
+
+	public String getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(String s_id) {
+		this.s_id = s_id;
+	}
+
 	
 	
 }

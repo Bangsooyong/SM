@@ -167,8 +167,14 @@
 	</sql>
 	
 	
-	
+	<!-- seller에서 미승인된 판매자 회원만 뽑아오는 쿼리  -->
+	<select id="selectAccess" resultType="com.online.shop.domain.SellerVO">
+		select * from S_TBL_SELLER where s_acc = 0 order by s_reg desc
+	</select>
 
-
+	<!-- product에서 미승인된 판매물만 검색 -->
+	<select id="productAccess" resultType="com.online.shop.domain.ProductVO">
+		select * from S_TBL_PRODUCT where p_acc = 0 order by p_reg desc
+	</select>
 
 </mapper>

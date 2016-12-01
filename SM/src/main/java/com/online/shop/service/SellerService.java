@@ -18,4 +18,6 @@ public interface SellerService {
 	// 판매자 목록 검색 페이지수를 세기 위한 service
 	public abstract int listSearchCount(SearchPageCriteria cri);
 
+	//미승인 판매자 검색
+	public abstract List<SellerVO> searchAccess();
 }

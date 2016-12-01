@@ -1,7 +1,10 @@
 package com.online.shop.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.type.IntegerTypeHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,10 +55,30 @@ public class AdminController {
 	// 관리자 마이페이지 콘트롤러
 	@RequestMapping(value = "/admin/admin_mypage", method = RequestMethod.GET)
 	public void adminMypage(Model model) {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
+		String today = sdf.format(date);
 		List<BuyVO> list = dao.selectByBuy();
 		List<BuyVO> list2 = dao.selectByBuy2();
+		List<BuyVO> list3 = dao.selectByBuyRequest();
+		List<BuyVO> list4 = dao.selecyByBuyToday(today);
+		List<SellerVO> list5 = sellerservice.searchAccess();
+		List<ProductVO> list6 = productservice.selectAcc();
+		List<SellerVO> list7 = sellerservice.read();
+		
+		
 		model.addAttribute("listBuyVO", list);
 		model.addAttribute("list2", list2);
+		model.addAttribute("reqSize", list3.size());
+		model.addAttribute("listBuyReq", list3);
+		model.addAttribute("buyTodaySize", list4.size());
+		model.addAttribute("buyToday", list4);
+		model.addAttribute("accSize", list5.size());
+		model.addAttribute("listAcc", list5);
+		model.addAttribute("pSize", list6.size());
+		model.addAttribute("pAcc", list6);
+		model.addAttribute("sel_id", list7);
+		
 
 	}
 	
