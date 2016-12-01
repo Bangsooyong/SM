@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.online.shop.domain.BuyVO;
 import com.online.shop.domain.CartVO;
+import com.online.shop.pageutil.PageCriteria;
+import com.online.shop.pageutil.SearchPageCriteria;
 
 @Repository
 public class AdminDAOImple implements AdminDAO {
@@ -36,6 +38,43 @@ public class AdminDAOImple implements AdminDAO {
 	public List<BuyVO> selectByBuyf() {
 		return sqlSession.selectList(NAMEPACE+".selectByBuyf");
 	}
+	
+	// 레코드 전체 수를 검색 하는 dao
+	@Override
+	public int getNumOfRecordsBuyr() {
+		return sqlSession.selectOne(NAMEPACE + ".buyrTotalCount");
+	}
+	
+	// 페이징 처리를 수행하는 dao
+	@Override
+	public List<BuyVO> selectByBuyr(PageCriteria cri) {
+		return sqlSession.selectList(NAMEPACE + ".buyrListPage", cri);
+	}
+	
+	// 검색된 레코드 갯수를 세는 dao	
+	@Override
+	public int getNumOfSearchRecordsBuyr(SearchPageCriteria cri) {
+		return sqlSession.selectOne(NAMEPACE + ".buyrListSearchCount", cri);
+	}
+	
+	// 검색 기능을 수행하는 dao
+	@Override
+	public List<BuyVO> selectByBuyr(SearchPageCriteria cri) {
+		return sqlSession.selectList(NAMEPACE + ".buyrListSearch", cri);
+	}
+	
+	@Override
+	public int getNumOfRecordsBuyf() {
+		return sqlSession.selectOne(NAMEPACE + ".buyfTotalCount");
+	}
+	
+	@Override
+	public List<BuyVO> selectByBuyf(PageCriteria cri) {
+		return sqlSession.selectList(NAMEPACE + ".buyfListPage", cri);
+	}
+	
+	
+	
 
 	@Override
 	public List<BuyVO> selectByBuyRequest() {

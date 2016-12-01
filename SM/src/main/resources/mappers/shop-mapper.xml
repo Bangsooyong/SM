@@ -5,13 +5,89 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.online.shop.ShopMapper">
-
+ 	<!-- 판매물 등록 관련 커리문 -->
 	<!-- Read(select): 판매 상품 전체 검색 -->
 	<select id="productSelectAll" resultType="com.online.shop.domain.ProductVO">
 		select * from
 		S_TBL_PRODUCT order by p_no
 	</select>
 
+	<!-- 전체 페이지 수를 검색 -->
+	<select id="productTotalCount" resultType="Integer">
+		select count(*) from S_TBL_PRODUCT
+	</select>
+
+	<!-- 상품 등록 페이지에서 페이징 처리를 위한 SQL -->
+	<select id="productListPage" resultType="com.online.shop.domain.ProductVO">
+		select b.*
+		from (
+			select rownum rn, a.*
+			from (
+				select * from S_TBL_PRODUCT	order by p_no 
+			) a
+		) b
+		where rn between #{start} and #{end}
+	</select>
+	
+	<!-- 상품 등록 검색목록 전체를 세기 위한 쿼리 -->
+	<select id="productListSearchCount" resultType="Integer">
+
+		select count(p_no) from S_TBL_PRODUCT
+	
+		<include refid="productSearch"></include>
+	</select>
+	
+	<!-- 상품 등록 페이지에서 검색을 위한 쿼리 -->
+	<select id="productListSearch" resultType="com.online.shop.domain.ProductVO">
+	select b.*
+		from (
+			select rownum rn, a.*
+			from (
+				select * from S_TBL_PRODUCT
+				<include refid="productSearch"></include>
+		 		order by p_no 
+			) a
+		) b
+		where rn between #{start} and #{end}
+	</select>
+	
+	<!-- option 제약조건 -->
+	<sql id="productSearch">
+		<if test="searchType != null">
+			<if test="searchType == 'i'.toString()">
+				where s_id like CONCAT(CONCAT('%', #{keyword}) , '%')
+			</if>
+			<if test="searchType == 'b'.toString()">
+				where p_no like CONCAT(CONCAT('%', #{keyword}) , '%')
+			</if>
+			<if test="searchType == 'p'.toString()">
+				where p_name like CONCAT(CONCAT('%', #{keyword}) , '%')
+			</if>
+			<if test="searchType == 'ib'.toString()">
+				where (s_id like CONCAT(CONCAT('%', #{keyword}) , '%') OR
+				p_no like
+				CONCAT(CONCAT('%', #{keyword}) , '%'))
+			</if>
+			<if test="searchType == 'ip'.toString()">
+				where (s_id like CONCAT(CONCAT('%', #{keyword}) , '%') OR
+				p_name like
+				CONCAT(CONCAT('%', #{keyword}) , '%'))
+			</if>
+			<if test="searchType == 'bp'.toString()">
+				where (p_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
+				p_name like
+				CONCAT(CONCAT('%', #{keyword}) , '%'))
+			</if>
+			<if test="searchType == 'ibp'.toString()">
+				where (s_id like CONCAT(CONCAT('%', #{keyword}) , '%') OR
+				(p_no like CONCAT(CONCAT('%', #{keyword}) , '%')) OR
+				p_name like
+				CONCAT(CONCAT('%', #{keyword}) , '%'))
+			</if>
+		</if>
+	</sql>	
+	 
+	
 	<!-- Read(select): 판매자 전체 검색 -->
 	<select id="sellerSelectAll" resultType="com.online.shop.domain.SellerVO">
 		select * from
@@ -24,7 +100,7 @@
 		S_TBL_SELLER
 	</select>
 
-	<!-- 판매자 페이지 페이징 처리를 위한 SQL -->
+	<!-- 판매자 페이지에서 페이징 처리를 위한 SQL -->
 	<select id="sellerListPage" resultType="com.online.shop.domain.SellerVO">
 		select b.*
 		from (
@@ -39,33 +115,30 @@
 	</select>
 	
 	<!-- 판매자 검색용 쿼리 -->
-	<select id="searchListSearch" resultType="com.online.shop.domain.BuyerVO">
+	<select id="searchListSearch" resultType="com.online.shop.domain.SellerVO">
 		select b.*
 		from (
-		select rownum
-		rn, a.*
-		from (
-		select * from S_TBL_SELLER
-		<include refid="sellerSearch"></include>
-		 order by s_no 
-		) a
+			select rownum rn, a.*
+			from (
+				select * from S_TBL_SELLER
+				<include refid="sellerSearch"></include>
+		 		order by s_no 
+			) a
 		) b
-		where rn
-		between #{start} and #{end}
+		where rn between #{start} and #{end}
 	</select>
-
+	<!-- 판매자 검색 리스트를 세는 쿼리 -->
 	<select id="sellerListSearchCount" resultType="Integer">
 
 		select count(s_no) from S_TBL_SELLER
-
 	
 		<include refid="sellerSearch"></include>
-		
 	</select>
 
+	<!-- option 제약조건 -->
 	<sql id="sellerSearch">
 		<if test="searchType != null">
-			<if test="searchType == 'b'.toString()">
+			<if test="searchType == 'n'.toString()">
 				where s_no like CONCAT(CONCAT('%', #{keyword}) , '%')
 			</if>
 			<if test="searchType == 'i'.toString()">
@@ -74,12 +147,12 @@
 			<if test="searchType == 'e'.toString()">
 				where s_email like CONCAT(CONCAT('%', #{keyword}) , '%')
 			</if>
-			<if test="searchType == 'bi'.toString()">
+			<if test="searchType == 'ni'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				s_id like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
 			</if>
-			<if test="searchType == 'be'.toString()">
+			<if test="searchType == 'ne'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				s_email like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
@@ -89,14 +162,14 @@
 				s_email like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
 			</if>
-			<if test="searchType == 'bi'.toString()">
+			<if test="searchType == 'nie'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				(s_id like CONCAT(CONCAT('%', #{keyword}) , '%')) OR
 				s_email like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
 			</if>
 		</if>
-	</sql>
+	</sql>	
 	
 	<!-- 구매자 회원 관리 관련 커리문 -->
 	<!-- Read(select): 판매자 전체 검색 -->
@@ -150,6 +223,7 @@
 		
 	</select>
 
+	<!-- option 제약조건 -->
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 'i'.toString()">

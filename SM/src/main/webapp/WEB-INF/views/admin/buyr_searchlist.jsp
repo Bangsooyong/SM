@@ -46,7 +46,7 @@ li {
 	<div>
 
 		<h3>전체 주문 요청 내역</h3>
-		<select name = "searchType">
+		<select name = "searchType">	
 			<option value="n" <c:out value="${cri.searchType == null?'selected':'' }"/>>---</option>
 			<option value="s" <c:out value="${cri.searchType eq 's'?'selected':'' }"/>>판매자 ID</option>
 			<option value="b" <c:out value="${cri.searchType eq 'b'?'selected':'' }"/>>구매자 ID</option>
@@ -79,8 +79,7 @@ li {
 							pattern="yyyy년 MM월 dd일" />&emsp;&emsp;</td>
 					<td>${list.p_name }&emsp;(${list.o_cont })</td>
 					<td>${list.p_price }원</td>
-					<td>${list.s_id }&emsp;</td>
-
+					<td>${list.s_id }</td>
 					<td>${list.b_id }&emsp;</td>
 					<c:if test="${list.buy_status eq '0' }">
 					<td>입금대기</td>
@@ -100,17 +99,18 @@ li {
 		</table>
 
 		<ul class="pageLinks" >
-			<c:if test="${pageMaker.hasPrev }">
-				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
+			<li id="main"><a href="${pageMaker.startPageNum }">처음으로</a></li>
+			<c:if test="${searchpageMaker.hasPrev }">
+				<li id="page"><a href="${searchpageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 			</c:if>
 
-			<c:forEach begin="${pageMaker.startPageNum }"
-				end="${pageMaker.endPageNum }" var="num">
+			<c:forEach begin="${searchpageMaker.startPageNum }"
+				end="${searchpageMaker.endPageNum }" var="num">
 				<li id="page"><a href="${num }">${num }</a></li>
 			</c:forEach>
 
-			<c:if test="${pageMaker.hasNext }">
-				<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
+			<c:if test="${searchpageMaker.hasNext }">
+				<li id="page"><a href="${searchpageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 			</c:if>
 
 		</ul>
@@ -121,6 +121,8 @@ li {
 			
 			<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
 			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
+			<input type="hidden" name="searchType"	value="${searchpageMaker.criteria.searchType}" /> 
+			<input type="hidden" name="keyword" value="${cri.keyword }" />
 		</form>
 
 	</div>
@@ -137,6 +139,21 @@ $(document).ready(function() {
 
 	// 클래스 pageLinks 안의 li 태그 안의 a 태그를 찾아서 click 이벤트를 커스터마이징
 	$('.pageLinks li a').click(function() {
+		event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
+		// pageForm 안에 있는 name="page"인 요소를 찾아서
+		// 이동할 페이지 번호를 세팅
+		var targetPage = $(this).attr('href');
+		console.log('targetPage=' + targetPage);
+		frm.find('[name="page"]').val(targetPage);
+		// 페이징 화면으로 보내기 위한 action 정보
+		frm.attr('action', 'buyr_searchlist');
+		// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)
+		frm.attr('method', 'get');
+		// 폼 양식을 서버로 전송
+		frm.submit();
+	});
+	
+	$('#main a').click(function() {
 		event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
 		// pageForm 안에 있는 name="page"인 요소를 찾아서
 		// 이동할 페이지 번호를 세팅

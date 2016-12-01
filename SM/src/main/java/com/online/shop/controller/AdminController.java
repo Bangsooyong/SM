@@ -84,16 +84,43 @@ public class AdminController {
 	
 	// 주문 요청 내역 콘트롤러
 	@RequestMapping(value="/admin/buyr", method = RequestMethod.GET)
-	public void adminBuyReq(Model model) {
-		List<BuyVO> list = dao.selectByBuyr();
+	public void adminBuyReq(Integer page, Model model) {
+		logger.info("page : " + page);
+		
+		PageCriteria c = new PageCriteria();
+		if (page != null) {
+			c.setPage(page);
+		}
+		
+		List<BuyVO> list = dao.selectByBuyr(c);
 		model.addAttribute("list", list);
+		
+		PageMaker maker = new PageMaker();
+		maker.setCrieria(c);
+		maker.setTotalCount(dao.getNumOfRecordsBuyr());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
 	}
 	
 	// 전체 판매 내역 콘트롤러
 	@RequestMapping(value="/admin/buyf", method = RequestMethod.GET)
-	public void adminBuyfin(Model model) {
-		List<BuyVO> list = dao.selectByBuyf();
+	public void adminBuyfin(Integer page, Model model) {
+		logger.info("page : " + page);
+		
+		PageCriteria c = new PageCriteria();
+		if (page != null) {
+			c.setPage(page);
+		}
+		
+		List<BuyVO> list = dao.selectByBuyf(c);
+		logger.info("list size: " + list.size());
 		model.addAttribute("list", list);
+		
+		PageMaker maker = new PageMaker();
+		maker.setCrieria(c);
+		maker.setTotalCount(dao.getNumOfRecordsBuyf());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
 	}
 
 	// 판매자 가입 승인 요청 내역 콘트롤러
@@ -120,17 +147,26 @@ public class AdminController {
 
 	// 판매물 등록 승인 콘트롤러
 	@RequestMapping(value = "/admin/seller_accept_product_list", method = RequestMethod.GET)
-	public void acceptProductPage(Model model) {
-		List<ProductVO> list = productservice.read(); 
-		List<SellerVO> list1 = sellerservice.read();
-
-		logger.info("list size=" + list.size());
-		logger.info("list1 size=" + list1.size());
-		logger.info(list.get(0).getP_name());
-		logger.info(list1.get(0).getS_no() + "");
-
-		model.addAttribute("prodcutList", list);
+	public void acceptProductPage(Integer page, Model model) {		
+		logger.info("page : " + page);
+		
+		PageCriteria c = new PageCriteria();
+		if (page != null) {
+			c.setPage(page);
+		}
+		
+		List<ProductVO> list = productservice.read(c);
+		List<SellerVO> list1 = sellerservice.read(c);
+		
+		model.addAttribute("productList", list);
 		model.addAttribute("sellerList", list1);
+		
+		PageMaker maker = new PageMaker();
+		maker.setCrieria(c);
+		maker.setTotalCount(productservice.getNumOfRecords());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
+		
 	}
 
 	// 구매자 회원 목록 콘트롤러(페이징 페이지)

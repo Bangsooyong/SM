@@ -15,7 +15,9 @@ public class BuyVO {
 	private String delivery_zip;//우편번호
 	private String delivery_addr;//주소
 	private int buy_status;//주문상태
+
 	private Date buy_comp;//배송완료 후 구매 확정인 상태
+
 	private String s_id; //판매자 아이디
 	
 	public BuyVO() {}
@@ -122,8 +124,6 @@ public class BuyVO {
 
 	public void setS_id(String s_id) {
 		this.s_id = s_id;
-	}
-
-	
+	}	
 	
 }

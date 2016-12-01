@@ -42,6 +42,8 @@ public class SellerDAOImple implements SellerDAO {
 	
 	@Override
 	public List<SellerVO> listSearch(SearchPageCriteria cri) { 
+//		List<SellerVO> list = sqlSession.selectList(NAMESPACE + ".searchListSearch", cri);
+//		System.out.println("list: "+ list.get(0).getS_id());
 		return sqlSession.selectList(NAMESPACE + ".searchListSearch", cri);
 	}
 	
