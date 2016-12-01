@@ -23,6 +23,10 @@
 li {
 	list-style-type: none;
 }
+
+caption {
+	margin-bottom: 10px;
+}
 </style>
 
 </head>
@@ -58,7 +62,7 @@ li {
 				<th>[판매자 승인 요청]</th>
 				<th>[판매몰 승인 요청]</th>
 			</tr>
-			<tr>
+			<tr style="font-size: 35px;">
 				<td id = "newReq" onMouseover="this.style.color='pink';"
 					onMouseout="this.style.color='blue';"
 				style="text-align: center; color: blue;
@@ -118,7 +122,7 @@ li {
 		</table>
 		
 		<table id = "newTotalReq" style="display: none;">
-			<caption><b>새로운 주문 요청 내역</b></caption>
+			<caption><b>[새로운 주문 요청 내역]</b></caption>
 			<tr>
 				<th>주문번호</th>
 				<th>주문날짜</th>
@@ -179,7 +183,7 @@ li {
 		</table>
 		
 		<table id = "buyToday" style="display: none;">
-			<caption><b>오늘의 판매 내역</b></caption>
+			<caption><b>[오늘의 판매 내역]</b></caption>
 			<tr>
 				<th>주문번호</th>
 				<th>주문날짜</th>
@@ -204,7 +208,7 @@ li {
 		</table>
 		
 		<table id = "sellerAccess" style="display: none;">
-			<caption><b>판매자 승인 요청</b></caption>
+			<caption><b>[판매자 승인 요청]</b></caption>
 			<tr>
 				<th>회원번호</th>
 				<th>판매자 ID</th>
@@ -227,7 +231,7 @@ li {
 		</table>
 		
 			<table id = "productAccess" style="display: none;">
-			<caption><b>판매물 승인 요청</b></caption>
+			<caption><b>[판매물 승인 요청]</b></caption>
 			<tr>
 				<th>회원번호</th>
 				<th>판매자</th>
