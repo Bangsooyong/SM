@@ -16,7 +16,7 @@
 	<a href="admin/admin_mypage">관리지 마이페이지</a><br/><br/>
 	<a href="admin/seller_admin_main">판매자 샵</a><br/><br/>
 	<a href="#">장바구니</a><br/><br/>
-	<a href="help/boardhelp">고객센터</a><br/><br/>
+	<a href="help/mainlist">고객센터</a><br/><br/>
 	<a href="board/qna">상품QNA</a>
 	<a href="BoardRev/review">상품후기</a><br/><br/> 
 	

@@ -12,12 +12,12 @@
 <form method="post">
 
 제목<br/>
-<input type="text" name="title" required /><br/>
+<input type="text" name="h_title" required /><br/>
 본문<br/>
-<textarea rows="5" cols="40" name="content" required></textarea><br/>
+<textarea rows="5" cols="40" name="h_content" required></textarea><br/>
 
 작성자 아이디<br/>
-<input type="text" name="userid" readonly value="아이디자동적용" /><br/>
+<input type="text" name="h_userid" readonly value="testID" /><br/>
 
 <input type="submit" value="작성 완료">
 
