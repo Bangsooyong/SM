@@ -16,7 +16,10 @@
 .qnaDetail {
 	border: none;
 	color: blue;
+}.pageLinks li {
+	display: inline;
 }
+
 
 .star_rating {font-size:0; letter-spacing:0px;}
 .star_rating a {
@@ -125,6 +128,31 @@
 	<br />
 	
 	<button id="btnReviewInsert">후기 작성</button>
+	
+	<!-- 페이지 링크  -->
+	<ul class="pageLinks">
+			<c:if test="${pageMaker.hasPrev }">
+				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPageNum }"
+				end="${pageMaker.endPageNum }" var="num">
+				<li id="page"><a href="${num }">${num }</a></li>
+			</c:forEach>
+
+			<c:if test="${pageMaker.hasNext }">
+				<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
+			</c:if>
+
+		</ul>
+
+		<%-- 현재 페이지, 페이지 당 보여줄 게시글 개수를 서버로 보내주기 위해서, 
+	사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
+		<form id="pageForm">
+
+			<input type="hidden" name="page" value="${pageMaker.criteria.page }" />
+			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
+		</form>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -186,13 +214,34 @@
 			frm.submit();
 		});
 		
+	});
+	
+	var frm = $('#pageForm');
+
+	// 클래스 pageLinks 안의 li 태그 안의 a 태그를 찾아서 click 이벤트를 커스터마이징
+	$('.pageLinks li a').click(function() {
+		event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
+		// pageForm 안에 있는 name="page"인 요소를 찾아서
+		// 이동할 페이지 번호를 세팅
+		var targetPage = $(this).attr('href');
+		console.log('targetPage=' + targetPage);
+		frm.find('[name="page"]').val(targetPage);
+		// 페이징 화면으로 보내기 위한 action 정보
+		frm.attr('action', 'review');
+		// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)
+		frm.attr('method', 'get');
+		// 폼 양식을 서버로 전송
+		frm.submit();
+	});
+
 		if ('${insert_reply}' == 'success') {
 			alert('답변 등록 성공');
 		} else if ('${insert_reply}' == 'fail') {
 			alert('답변 등록  실패!');
 		}
 		
-	})
+	
+
 	</script>
 
 

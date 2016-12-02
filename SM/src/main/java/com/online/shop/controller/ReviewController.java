@@ -13,6 +13,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.ReviewRVO;
 import com.online.shop.domain.ReviewVO;
+import com.online.shop.pageutil.PageCriteria;
+import com.online.shop.pageutil.PageMaker;
 import com.online.shop.persistence.RevDAO;
 
 @Controller
@@ -23,10 +25,15 @@ public class ReviewController {
 	private RevDAO dao;
 	
 	@RequestMapping(value="review", method=RequestMethod.GET)
-	public void reviewBoard(Model model) {
-		int p_no = 0;
+	public void reviewBoard(Integer page, Model model) {
+//		int p_no = 0; <- 페이징 처리하면서 의미가 없어진듯...;;
 		
-		List<ReviewVO>list = dao.selectRev(p_no);
+		PageCriteria c = new PageCriteria();
+		if (page != null){
+			c.setPage(page);
+		}
+		
+		List<ReviewVO>list = dao.selectRev(c);
 		List<ReviewRVO> listR = new ArrayList<>();
 		for(ReviewVO vo : list) {
 			if(vo.getRev_reply() == 1) {
@@ -38,6 +45,12 @@ public class ReviewController {
 				
 		model.addAttribute("listRev", list);
 		model.addAttribute("listReply", listR);
+		
+		PageMaker maker = new PageMaker();
+		maker.setCrieria(c);
+		maker.setTotalCount(dao.getNumOfPageReview());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
 	}
 	
 	@RequestMapping(value="insertReview", method=RequestMethod.GET)
