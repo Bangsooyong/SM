@@ -36,7 +36,8 @@ public class HomeController {
 		model.addAttribute("serverTime", dateString);
 		model.addAttribute("msg", "안녕하세요!!");
 		
-		return "home";
+		//return "home";
+		return "UI/index";
 	}
 	
 
