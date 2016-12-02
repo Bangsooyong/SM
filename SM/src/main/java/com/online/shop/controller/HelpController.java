@@ -49,12 +49,13 @@ public class HelpController {
 			attr.addFlashAttribute("insert_result", "fail");
 		}
 		
-		return "/help/mainlist";
+		return "redirect:mainlist";
 	}
 	
 	@RequestMapping(value="detail")
-	public void helpDatail(int bno, Model model) {
-
+	public void helpDatail(int h_no, Model model) {
+		helpVO vo = dao.helpDetail(h_no);
+		model.addAttribute("vo", vo);
 	}
 	
 }

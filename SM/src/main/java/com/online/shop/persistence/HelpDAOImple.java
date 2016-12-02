@@ -26,4 +26,9 @@ public class HelpDAOImple implements HelpDAO {
 		return session.selectList(NAMESPACE+".select-help");
 	}
 	
+	@Override
+	public helpVO helpDetail(int h_no) {
+		return session.selectOne(NAMESPACE+".help-detail", h_no);
+	}
+	
 }

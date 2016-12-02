@@ -15,6 +15,10 @@
 		select * from s_tbl_help order by h_reg desc
 	</select>
 	
+	<select id="help-detail" resultType="com.online.shop.domain.helpVO">
+		select * from s_tbl_help where h_no = #{h_no}
+	</select>
+	
 	<!-- 
 	
 	<select id="select-rev" resultType="com.online.shop.domain.ReviewVO">

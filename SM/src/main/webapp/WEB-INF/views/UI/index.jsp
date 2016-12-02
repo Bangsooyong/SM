@@ -30,23 +30,25 @@
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
 	</head>
-    <body>		
+    <body>
+    
+    <a href="home">홈</a>	
 		<div id="top-bar" class="container">
 			<div class="row">
 				<div class="span4">
 					<form method="POST" class="search_form">
-						<input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
+						<input type="text" class="input-block-level search-query" Placeholder="예) 목걸이">
 					</form>
 				</div>
 				<div class="span8">
 					<div class="account pull-right">
 						<ul class="user-menu">				
-							<li><a href="#">My Account</a></li>
-							<li><a href="cart">Your Cart</a></li>
+							<li><a href="mypage">마이페이지</a></li>
+							<li><a href="cart">장바구니</a></li>
 							<li><a href="checkout">Checkout</a></li>		
 						
 						<c:if test="${empty login_id}">
-						<li><a href="register">Login</a></li>	
+						<li><a href="register">로그인</a></li>	
 						</c:if>
 								<c:if test="${not empty login_id }">
 								<!-- 세션에 로그인 정보가 있는 경우 -->
@@ -65,23 +67,23 @@
 					<a href="index" class="logo pull-left"><img src=<c:url value='/resources/themes/images/logo.png' /> class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
 						<ul>
-							<li><a href="./products.html">Woman</a>					
+							<li><a href="./products.html">홈/데코</a>					
 								<ul>
 									<li><a href="./products.html">Lacinia nibh</a></li>									
 									<li><a href="./products.html">Eget molestie</a></li>
 									<li><a href="./products.html">Varius purus</a></li>									
 								</ul>
 							</li>															
-							<li><a href="./products.html">Man</a></li>			
-							<li><a href="./products.html">Sport</a>
+							<li><a href="./products.html">캔들/디퓨저</a></li>			
+							<li><a href="./products.html">아트/펜시</a>
 								<ul>									
 									<li><a href="./products.html">Gifts and Tech</a></li>
 									<li><a href="./products.html">Ties and Hats</a></li>
 									<li><a href="./products.html">Cold Weather</a></li>
 								</ul>
 							</li>							
-							<li><a href="./products.html">Hangbag</a></li>
-							<li><a href="./products.html">Best Seller</a></li>
+							<li><a href="./products.html">쥬얼리</a></li>
+							<li><a href="./products.html">인기 판매자</a></li>
 							<li><a href="./products.html">Top Seller</a></li>
 						</ul>
 					</nav>
@@ -91,22 +93,27 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src=<c:url value='/resources/themes/images/carousel/banner-1.jpg'/> alt="" />
+							<img src=<c:url value='/resources/themes/images/carousel/banner-5.jpg'/> alt="" />
+							<div class="intro">
+								<h1>누군가를 위해, 또는 나를 위해</h1>
+								<p><span>따스함을 선물해 보세요</span></p>
+								<p><span>건강한 베이킹 DIY KIT 20%</span></p>
+							</div>
 						</li>
 						<li>
-							<img src=<c:url value='/resources/themes/images/carousel/banner-2.jpg'/> alt="" />
+							<img src=<c:url value='/resources/themes/images/carousel/banner-4.jpg'/> alt="" />
 							<div class="intro">
-								<h1>Mid season sale</h1>
-								<p><span>Up to 50% Off</span></p>
-								<p><span>On selected items online and in stores</span></p>
+								<h1>크리스마스엔 직접 만든</h1>
+								<p><span>베이킹 선물 어떠세요?</span></p>
+								<p><span>건강한 베이킹 DIY KIT 20%</span></p>
 							</div>
 						</li>
 					</ul>
 				</div>			
 			</section>
 			<section class="header_text">
-				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates. 
-				<br/>Don't miss to use our cheap abd best bootstrap templates.
+				손으로 할 수 있는 모든 것을 담아내는 곳
+				<br/>손이 없으면 할 수 없는 멋진 수공예 상품과 만나고, 함께 배울 수 있는 공간입니다.
 			</section>
 			<section class="main-content">
 				<div class="row">
@@ -114,7 +121,7 @@
 						<div class="row">
 							<div class="span12">
 								<h4 class="title">
-									<span class="pull-left"><span class="text"><span class="line">Feature <strong>Products</strong></span></span></span>
+									<span class="pull-left"><span class="text"><span class="line">베스트 <strong>상품</strong></span></span></span>
 									<span class="pull-right">
 										<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
 									</span>
@@ -127,7 +134,7 @@
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/1.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/b1.jpg'/> alt="" /></a></p>
 														<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
 														<a href="products.html" class="category">Commodo consequat</a>
 														<p class="price">$17.25</p>
@@ -136,7 +143,7 @@
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/2.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/b2.jpg'/> alt="" /></a></p>
 														<a href="product_detail.html" class="title">Quis nostrud exerci tation</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$32.50</p>
@@ -144,7 +151,7 @@
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/3.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/b3.jpg'/> alt="" /></a></p>
 														<a href="product_detail.html" class="title">Know exactly turned</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$14.20</p>
@@ -152,7 +159,7 @@
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/4.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/ladies/b4.jpg'/> alt="" /></a></p>
 														<a href="product_detail.html" class="title">You think fast</a><br/>
 														<a href="products.html" class="category">World once</a>
 														<p class="price">$31.45</p>
@@ -204,7 +211,7 @@
 						<div class="row">
 							<div class="span12">
 								<h4 class="title">
-									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
+									<span class="pull-left"><span class="text"><span class="line">새로운 <strong>상품</strong></span></span></span>
 									<span class="pull-right">
 										<a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
 									</span>
@@ -216,7 +223,10 @@
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware2.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html">
+														<!-- <img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware2.jpg'/> alt="" /> -->
+														<img src=<c:url value='/resources/themes/images/ladies/b4.jpg'/> alt="" />
+														</a></p>
 														<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
 														<a href="products.html" class="category">Commodo consequat</a>
 														<p class="price">$25.50</p>
@@ -224,7 +234,10 @@
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware1.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html">
+														<!-- <img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware1.jpg'/> alt="" /> -->
+														<img src=<c:url value='/resources/themes/images/ladies/b3.jpg'/> alt="" />
+														</a></p>
 														<a href="product_detail.html" class="title">Quis nostrud exerci tation</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$17.55</p>
@@ -232,7 +245,10 @@
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware6.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html">
+														<!-- <img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware6.jpg'/> alt="" /> -->
+														<img src=<c:url value='/resources/themes/images/ladies/b2.jpg'/> alt="" />
+														</a></p>
 														<a href="product_detail.html" class="title">Know exactly turned</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$25.30</p>
@@ -240,7 +256,10 @@
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware5.jpg'/> alt="" /></a></p>
+														<p><a href="product_detail.html">
+														<!-- <img src=<c:url value='/resources/themes/images/cloth/bootstrap-women-ware5.jpg'/> alt="" /> -->
+														<img src=<c:url value='/resources/themes/images/ladies/b1.jpg'/> alt="" />
+														</a></p>
 														<a href="product_detail.html" class="title">You think fast</a><br/>
 														<a href="products.html" class="category">World once</a>
 														<p class="price">$25.60</p>
