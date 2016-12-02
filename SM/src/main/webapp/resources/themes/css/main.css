@@ -20,8 +20,13 @@ ul li a,a{
     -ms-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+
+.pageLinks li {
+	list-style-type: none;
+	display: inline;
+}
 a{
-	color:#eb4800;
+	color:#5f5f59;
 }
 a:hover{
 	color:#fd4004;
