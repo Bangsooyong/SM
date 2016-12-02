@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,21 +31,16 @@ th {
         <th>작성 시간</th>
     </tr>
     
+     <c:forEach var="vo" items="${helpList }">
     <tr>
-    	<td></td>
-    </tr>
-    
-<%--     <c:forEach var="vo" items="${boardList }">
-    <tr>
-        <td>${vo.bno }</td>
-        <td><a href="detail?bno=${vo.bno }">${vo.title }</a></td>
-        <td>${vo.userid }</td>
+        <td>${vo.h_no }</td>
+        <td><a href="detail?bno=${vo.h_no }">${vo.h_title }</a></td>
+        <td>${vo.h_userid }</td>
         <td>
-	        <fmt:formatDate value="${vo.regdate }" 
-	            pattern="yyyy-MM-dd HH:mm:ss"/>
+	       <fmt:formatDate value="${vo.h_reg }" pattern="yyyy-MM-dd HH:mm:ss"/>
         </td>
     </tr>
-    </c:forEach> --%>
+    </c:forEach>
 </table>
 
 
