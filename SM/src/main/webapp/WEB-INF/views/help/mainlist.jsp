@@ -34,7 +34,7 @@ th {
      <c:forEach var="vo" items="${helpList }">
     <tr>
         <td>${vo.h_no }</td>
-        <td><a href="detail?bno=${vo.h_no }">${vo.h_title }</a></td>
+        <td><a href="detail?h_no=${vo.h_no }">${vo.h_title }</a></td>
         <td>${vo.h_userid }</td>
         <td>
 	       <fmt:formatDate value="${vo.h_reg }" pattern="yyyy-MM-dd HH:mm:ss"/>

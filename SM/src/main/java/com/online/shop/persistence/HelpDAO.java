@@ -7,4 +7,5 @@ import com.online.shop.domain.helpVO;
 public interface HelpDAO {
 	public abstract int insertBoard(helpVO vo);
 	public abstract List<helpVO> selectAll();
+	public abstract helpVO helpDetail(int h_no);
 }

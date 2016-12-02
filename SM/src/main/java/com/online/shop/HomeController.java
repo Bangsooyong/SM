@@ -40,6 +40,11 @@ public class HomeController {
 		return "UI/index";
 	}
 	
+	@RequestMapping(value = "home", method = RequestMethod.GET) //POJO
+	public void home1(Model model) {
+
+	}
+	
 
 	
 	

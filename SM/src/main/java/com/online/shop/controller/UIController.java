@@ -35,6 +35,11 @@ public class UIController {
 	public String openProductDetail(){
 		return "/UI/product_detail";
 	}
+	
+	@RequestMapping(value="mypage", method=RequestMethod.GET)
+	public String openMypage(){
+		return "/UI/mypage";
+	}
 
 
 }
