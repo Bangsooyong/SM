@@ -188,9 +188,11 @@ public class AdminController {
 		maker.setTotalCount(buyerservice.getNumOfRecords());
 		maker.setPageData();
 		model.addAttribute("pageMaker", maker);
-		
-		
-		
+				
+	}
+	
+	@RequestMapping(value="/admin/total", method = RequestMethod.GET)
+	public void adminBuyTotal(Model model) {
 	}
 	
 	

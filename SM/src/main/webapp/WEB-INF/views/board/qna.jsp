@@ -150,7 +150,7 @@
 				var frm = $('#frm'+x);
  				frm.attr('action', 'insertReply');
 				frm.attr('mehtod', 'post');
-				frm.submit(); 
+				frm.submit();
 				
 			});
 			

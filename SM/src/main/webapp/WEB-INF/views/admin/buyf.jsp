@@ -28,9 +28,8 @@ li {
 	<h3>
 		<a href="/shop">홈</a>
 	</h3>
-	<h1>
-		<a href="admin_mypage">관리자페이지</a>
-	</h1>
+	<a href="JavaScript:window.history.back()">이전 페이지</a>
+	<a href="JavaScript:window.location.reload()">페이지 새로고침</a><br><br> 
 	<div>
 		<h3>판매관리</h3>
 		<ol>

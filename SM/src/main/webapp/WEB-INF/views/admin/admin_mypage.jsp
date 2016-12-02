@@ -31,9 +31,9 @@ caption {
 
 </head>
 <body>
-	<h3>
-		<a href="/shop">홈</a>
-	</h3>
+	
+	<a href="JavaScript:window.history.back()">이전 페이지</a>
+	
 	<a href="JavaScript:window.location.reload()">페이지 새로고침</a><br><br> 
 <!-- 	<h1>
 		<a href="admin_mypage">관리자페이지</a>
