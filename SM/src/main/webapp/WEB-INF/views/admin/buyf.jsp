@@ -114,7 +114,7 @@
 								<label class="control-label"><a href="buyf">전체 판매 내역</a></label>
 							</div>
 							<div class="control-group">
-								<label class="control-label"><a href="total">전체 판매
+								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
 							<h4 class="title">

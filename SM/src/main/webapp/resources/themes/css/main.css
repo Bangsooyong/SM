@@ -20,6 +20,24 @@ ul li a,a{
     -ms-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+
+#detail {
+	width: 250px; 
+	height: 750px;  
+	background-color: #EA9999;
+	position: absolute; 
+	top: 10%; 
+	right: 5%; 
+	display: none; 
+} 
+ 
+.pageLinks li {
+	list-style-type: none;
+	display: inline;
+}
+.control-label a{
+	color: #5f5f59
+}
 a{
    color:#EA9999;
 }
