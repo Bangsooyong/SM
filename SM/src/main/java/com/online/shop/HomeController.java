@@ -36,8 +36,8 @@ public class HomeController {
 		model.addAttribute("serverTime", dateString);
 		model.addAttribute("msg", "안녕하세요!!");
 		
-		//return "home";
-		return "UI/index";
+		return "home"; 
+//		return "UI/products";
 	}
 	
 	@RequestMapping(value = "home", method = RequestMethod.GET) //POJO
