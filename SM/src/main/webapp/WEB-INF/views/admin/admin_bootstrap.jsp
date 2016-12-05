@@ -95,10 +95,17 @@
 			<h4>
 				<span>관리자 페이지</span>
 			</h4>
+			
 		</section>
+		<h3>
+				<a href="admin_bootstrap">홈</a> 
+				</h3> 
 		<section class="main-content">
+				
 			<div class="row">
+			
 				<div class="span5"> 
+				
 					<h4 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
 					</h4>
@@ -152,20 +159,20 @@
 									</tr>
 									<tr>
 										<td id="newReq" onMouseover="this.style.color='#5f5f59';"
-											onMouseout="this.style.color='#fd4004';"
-											style="text-align: center; color: #fd4004; text-decoration: underline;">${reqSize}건</td>
+											onMouseout="this.style.color='#EA9999';"
+											style="text-align: center; color: #EA9999; text-decoration: underline;">${reqSize}건</td>
 
 										<td id="buyTo" onMouseover="this.style.color='#5f5f59';"
-											onMouseout="this.style.color='#fd4004';"
-											style="text-align: center; color: #fd4004; text-decoration: underline;">${buyTodaySize}건</td>
+											onMouseout="this.style.color='#EA9999';"
+											style="text-align: center; color: #EA9999; text-decoration: underline;">${buyTodaySize}건</td>
 
 										<td id="sel_ACC" onMouseover="this.style.color='#5f5f59';"
-											onMouseout="this.style.color='#fd4004';"
-					 						style="text-align: center; color: #fd4004; text-decoration: underline;">${accSize}건</td>
+											onMouseout="this.style.color='#EA9999';"
+					 						style="text-align: center; color: #EA9999; text-decoration: underline;">${accSize}건</td>
 
 										<td id="p_Acc" onMouseover="this.style.color='#5f5f59';"
-											onMouseout="this.style.color='#fd4004';"
-											style="text-align: center; color: #fd4004; text-decoration: underline;">${pSize}건</td>
+											onMouseout="this.style.color='#EA9999';"
+											style="text-align: center; color: #EA9999; text-decoration: underline;">${pSize}건</td>
 									</tr>
 								</table>
 							</div>

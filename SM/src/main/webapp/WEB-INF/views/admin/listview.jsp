@@ -1,68 +1,154 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Shop</title>
-<style type="text/css">
-div {
-	float: left;
-	margin-right: 100px;
-}
+<meta charset="utf-8">
+<title>Bootstrap E-commerce Templates</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+<!-- bootstrap -->
+<link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>"
+	rel="stylesheet">
+<link
+	href="<c:url value='/resources/bootstrap/css/bootstrap-responsive.min.css' />"
+	rel="stylesheet">
+<link href="<c:url value='/resources/themes/css/bootstrappage.css' />"
+	rel="stylesheet" />
 
-li {
-	list-style-type: none;
-}
+<!-- global styles -->
+<link href="<c:url value='/resources/themes/css/flexslider.css' />"
+	rel="stylesheet" />
+<link href="<c:url value='/resources/themes/css/main.css' />"
+	rel="stylesheet" />
 
-.pageLinks li {
-	display: inline;
-}
+<!-- scripts -->
+<script src="<c:url value='/resources/themes/js/jquery-1.7.2.min.js' />"></script>
+<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
+<script src="<c:url value='/resources/themes/js/superfish.js' />"></script>
+<script
+	src="<c:url value='/resources/themes/js/jquery.scrolltotop.js' />"></script>
 
-#detail {
-	width: 300px;
-	height: 350px;
-	background-color: tomato;
-	position: absolute;
-	top: 10%;
-	left: 50%;
-	display: none;
-}
-</style>
 
+<!--[if lt IE 9]>			
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
 </head>
 <body>
-	<h3>
-		<a href="/shop">È¨</a>
-	</h3>
-
-	<h1><a href="admin_mypage">°ü¸®ÀÚÆäÀÌÁö</a></h1>
-	<div>
-		<h3>ÆÇ¸Å°ü¸®</h3>
-		<ol>
-			<li><a href="buyr">ÀüÃ¼ ÁÖ¹® ¿äÃ» ³»¿ª</a></li>
-			<li><a href="buyf">ÀüÃ¼ ÆÇ¸Å ³»¿ª</a></li>
-			<li><a href="total">ÀüÃ¼ ÆÇ¸Å Åë°è</a></li>
-		</ol>
-
-		<h3>È¸¿ø°ü¸®</h3>
-		<ol>
-			<li><a href="seller_accept_list">ÆÇ¸ÅÀÚ °¡ÀÔ ½ÂÀÎ ¿äÃ» ³»¿ª</a></li>
-			<li><a href="seller_accept_product_list">ÆÇ¸Å¹° µî·Ï ½ÂÀÎ</a></li>
-			<li><a href="listview">È¸¿ø ¸ñ·Ï</a></li>
-		</ol>
-
+	<div id="top-bar" class="container">
+		<div class="row">
+			<div class="span4">
+				<form method="POST" class="search_form">
+					<input type="text" class="input-block-level search-query"
+						Placeholder="eg. T-sirt">
+				</form>
+			</div>
+			<div class="span8">
+				<div class="account pull-right">
+					<ul class="user-menu">
+						<li><a href="#">My Account</a></li>
+						<li><a href="cart.html">Your Cart</a></li>
+						<li><a href="checkout.html">Checkout</a></li>
+						<li><a href="admin_bootstrap.jsp">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<h3>ÀÏ¹İ È¸¿ø ¸ñ·Ï</h3>
-		<select name="searchType">
+	<div id="wrapper" class="container">
+		<section class="navbar main-menu">
+			<div class="navbar-inner main-menu">
+				<a href="index.html" class="logo pull-left"><img
+					src="<c:url value='/resources/themes/images//logo.png" class="site_logo'/>"
+					alt=""></a>
+				<nav id="menu" class="pull-right">
+					<ul>
+						<li><a href="./products.html">Woman</a>
+							<ul>
+								<li><a href="./products.html">Lacinia nibh</a></li>
+								<li><a href="./products.html">Eget molestie</a></li>
+								<li><a href="./products.html">Varius purus</a></li>
+							</ul></li>
+						<li><a href="./products.html">Man</a></li>
+						<li><a href="./products.html">Sport</a>
+							<ul>
+								<li><a href="./products.html">Gifts and Tech</a></li>
+								<li><a href="./products.html">Ties and Hats</a></li>
+								<li><a href="./products.html">Cold Weather</a></li>
+							</ul></li>
+						<li><a href="./products.html">Hangbag</a></li>
+						<li><a href="./products.html">Best Seller</a></li>
+						<li><a href="./products.html">Top Seller</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<section class="header_text sub">
+			<img class="pageBanner"
+				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
+				alt="New products">
+			<h4>
+				<span>ê´€ë¦¬ì í˜ì´ì§€</span>
+			</h4>
+		</section>
+		<section class="main-content">
+			<div class="row">
+				<div class="span5">
+					<h4 class="title">
+						<span class="text"><strong>íŒë§¤</strong> ê´€ë¦¬</span>
+					</h4>
+					<form action="#" method="post">
+						<input type="hidden" name="next" value="/">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label"><a href="buyr" id="test">ì „ì²´
+										ì£¼ë¬¸ ìš”ì²­ ë‚´ì—­</a></label>
+
+							</div>
+							<div class="control-group">
+								<label class="control-label"><a href="buyf">ì „ì²´ íŒë§¤ ë‚´ì—­</a></label>
+							</div>
+							<div class="control-group">
+								<label class="control-label"><a href="#">ì „ì²´ íŒë§¤
+										í†µê³„</a></label>
+							</div>
+							<h4 class="title">
+								<span class="text"><strong>íšŒì›</strong> ê´€ë¦¬</span>
+							</h4>
+							<div class="control-group">
+								<label class="control-label"><a
+									href="seller_accept_list">íŒë§¤ì íšŒì› ëª©ë¡</a></label>
+							</div>
+							<div class="control-group">
+								<label class="control-label"><a
+									href="seller_accept_product_list">íŒë§¤ë¬¼ ë“±ë¡ ìŠ¹ì¸</a></label>
+							</div>
+							<div class="control-group">
+								<label class="control-label"><a href="listview">êµ¬ë§¤ì
+										íšŒì› ëª©ë¡</a></label>
+							</div>
+							<hr>
+						</fieldset>
+					</form>
+				</div>
+				<div id="maindi" class="span7">
+					<h4 class="title">
+						<span class="text"><strong>êµ¬ë§¤ì </strong> íšŒì› ëª©ë¡</span>
+					</h4>
+					
+					
+						<fieldset>
+							<div class="control-group">
+								<select name="searchType">
 			<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-			<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':''}"/>>È¸¿ø ID</option>
-			<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':''}"/>>È¸¿ø ¸í</option>
-			<option value="in" <c:out value="${cri.searchType eq 'in'?'selected':''}"/>>È¸¿ø ID or È¸¿ø ¸í</option>>
+			<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':''}"/>>íšŒì› ID</option>
+			<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':''}"/>>íšŒì› ëª…</option>
+			<option value="in" <c:out value="${cri.searchType eq 'in'?'selected':''}"/>>íšŒì› ID or íšŒì› ëª…</option>>
 		</select>
 				
 		<input type="text" name="keyword" id="keywordInput" value='${cri.keyword }' />
@@ -70,19 +156,19 @@ li {
 
 		<table id="table">
 			<tr>
-				<th>È¸¿ø¹øÈ£</th>
-				<th>È¸¿ø¸í</th>
-				<th>È¸¿øID</th>
-				<th>°¡ÀÔÀÏ</th>
-				<th>»ó¼¼Á¤º¸</th>
+				<th>íšŒì›ë²ˆí˜¸</th>
+				<th>íšŒì›ëª…</th>
+				<th>íšŒì›ID</th>
+				<th>ê°€ì…ì¼</th>
+				<th>ìƒì„¸ì •ë³´</th>
 			</tr>
-			<!-- ¸ğµç È¸¿ø¿¡ ´ëÇÑ Á¤º¸ º¸±â -->
+			<!-- ëª¨ë“  íšŒì›ì— ëŒ€í•œ ì •ë³´ ë³´ê¸° -->
 			<c:forEach var="buyer" items="${buyerList}">
 				<c:if test="${buyer.b_gender eq 1 }">
-					<c:set var="user_gender" value="³²ÀÚ"></c:set>
+					<c:set var="user_gender" value="ë‚¨ì"></c:set>
 				</c:if>
 				<c:if test="${buyer.b_gender eq 0 }">
-					<c:set var="user_gender" value="¿©ÀÚ"></c:set>
+					<c:set var="user_gender" value="ì—¬ì"></c:set>
 				</c:if>
 				<tr>
 					<td class="bno">${buyer.b_no}</td>
@@ -90,7 +176,7 @@ li {
 					<td class="bid">${buyer.b_id}</td>
 					<td class="breg"><fmt:formatDate value="${buyer.b_reg }"
 							pattern="yyyy-MM-dd HH:mm:ss" /></td>
-					<td><button>»ó¼¼ Á¤º¸</button></td>
+					<td><button>ìƒì„¸ ì •ë³´</button></td>
 					<td class="phone" style="display: none;">${buyer.b_phone }</td>
 					<td class="email" style="display: none;">${buyer.b_email }</td>
 					<td class="birth" style="display: none;">${buyer.b_birth }</td>
@@ -103,7 +189,7 @@ li {
 
 		<ul class="pageLinks" >
 			<c:if test="${pageMaker.hasPrev }">
-				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;ÀÌÀü</a></li>
+				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;ì´ì „</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPageNum }"
@@ -112,117 +198,170 @@ li {
 			</c:forEach>
 
 			<c:if test="${pageMaker.hasNext }">
-				<li id="page"><a href="${pageMaker.endPageNum + 1 }">´ÙÀ½&raquo;</a></li>
+				<li id="page"><a href="${pageMaker.endPageNum + 1 }">ë‹¤ìŒ&raquo;</a></li>
 			</c:if>
 
 		</ul>
 
-		<%-- ÇöÀç ÆäÀÌÁö, ÆäÀÌÁö ´ç º¸¿©ÁÙ °Ô½Ã±Û °³¼ö¸¦ ¼­¹ö·Î º¸³»ÁÖ±â À§ÇØ¼­,
-»ç¿ëÀÚ¿¡°Ô´Â º¸ÀÌÁö ¾ÊÁö¸¸, ¼­¹ö·Î º¸³¾ Á¤º¸¸¦ ¾ç½Ä µ¥ÀÌÅÍ·Î ÀúÀåÇÏ´Â form --%>
+		<%-- í˜„ì¬ í˜ì´ì§€, í˜ì´ì§€ ë‹¹ ë³´ì—¬ì¤„ ê²Œì‹œê¸€ ê°œìˆ˜ë¥¼ ì„œë²„ë¡œ ë³´ë‚´ì£¼ê¸° ìœ„í•´ì„œ,
+ì‚¬ìš©ìì—ê²ŒëŠ” ë³´ì´ì§€ ì•Šì§€ë§Œ, ì„œë²„ë¡œ ë³´ë‚¼ ì •ë³´ë¥¼ ì–‘ì‹ ë°ì´í„°ë¡œ ì €ì¥í•˜ëŠ” form --%>
 		<form id="pageForm">
 			
 			<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
 			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
 		</form>
+								
 
-	</div>
-
-	<!-- a ÅÂ±× Å¬¸¯½Ã º¸¿©Áö´Â »ó¼¼ÇÑ È¸¿ø Á¤º¸ -->
+							</div>
+								<!-- a íƒœê·¸ í´ë¦­ì‹œ ë³´ì—¬ì§€ëŠ” ìƒì„¸í•œ íšŒì› ì •ë³´  divë°–ìœ¼ë¡œ ë¹¼ëŠ”ê±° ê³ ë ¤-->
 	<div id="detail">
 
-		<h4>È¸¿ø »ó¼¼ Á¤º¸</h4>
+		<h4>íšŒì› ìƒì„¸ ì •ë³´</h4>
 
-		<label for="bno">È¸¿ø¹øÈ£</label> 
+		<label for="bno">íšŒì›ë²ˆí˜¸</label> 
 		<input type="text" name="d_bno"	id="d_bno" readonly><br />
-		<label for="bname">ÀÌ¸§</label> <input type="text" name="d_bname" id="d_bname" readonly><br /> 
-		<label for="bid">¾ÆÀÌµğ</label> <input type="text" name="d_bid" id="d_bid" readonly><br /> 
-		<label for="bphone">¿¬¶ôÃ³</label> <input type="text" name="d_bphone" id="d_bphone" readonly><br />
-	    <label for="breg">°¡ÀÔÀÏ</label> <input type="text" name="d_breg" id="d_breg"	readonly><br />
-	    <label for="bemail">ÀÌ¸ŞÀÏ</label> <input	type="text" name="d_bemail" id="d_bemail" readonly><br />
-	    <label for="bbirth">»ıÀÏ</label> <input type="text" name="d_bbirth" id="d_bbrith" readonly><br /> 
-	    <label for="bgender">¼ºº°</label> 	<input type="text" name="d_bgender" id="d_bgender" readonly><br />
-		<label for="baddr">ÁÖ¼Ò</label> <input type="text" name="d_baddr"	id="d_baddr" readonly><br /> <label for="bmile">¸¶ÀÏ¸®Áö</label>
+		<label for="bname">ì´ë¦„</label> <input type="text" name="d_bname" id="d_bname" readonly><br /> 
+		<label for="bid">ì•„ì´ë””</label> <input type="text" name="d_bid" id="d_bid" readonly><br /> 
+		<label for="bphone">ì—°ë½ì²˜</label> <input type="text" name="d_bphone" id="d_bphone" readonly><br />
+	    <label for="breg">ê°€ì…ì¼</label> <input type="text" name="d_breg" id="d_breg"	readonly><br />
+	    <label for="bemail">ì´ë©”ì¼</label> <input	type="text" name="d_bemail" id="d_bemail" readonly><br />
+	    <label for="bbirth">ìƒì¼</label> <input type="text" name="d_bbirth" id="d_bbrith" readonly><br /> 
+	    <label for="bgender">ì„±ë³„</label> 	<input type="text" name="d_bgender" id="d_bgender" readonly><br />
+		<label for="baddr">ì£¼ì†Œ</label> <input type="text" name="d_baddr"	id="d_baddr" readonly><br /> <label for="bmile">ë§ˆì¼ë¦¬ì§€</label>
 		<input type="text" name="d_bmile" id="d_bmile" readonly><br />
-		<button id="close">´İ±â</button>
+		<button id="close">ë‹«ê¸°</button>
 	</div>
 
-</body>
-<!-- JQuery CDN -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		// a ÅÂ±× Å¬¸¯½Ã -> ¼öÁ¤¿øÃò ¿ø·¡ÀÇ aÅÂ±× ¹æ½ÄÀ¸·Î!
-		$('#table').on('click', 'button', function() {
-			$('#detail').show();
+							<hr>
 
-			var data = $(this).parent().parent();
-
-			var bno = $(data).children('.bno').text();
-			var name = $(data).children('.bname').text();
-			var id = $(data).children('.bid').text();
-			var date = $(data).children('.breg').text();
-			var phone = $(data).children('.phone').text();
-			var email = $(data).children('.email').text();
-			var brith = $(data).children('.birth').text();
-			var gender = $(data).children('.gender').text();
-			var addr = $(data).children('.addr').text();
-			var mile = $(data).children('.mile').text();
-
-			$('#d_bno').val(bno);
-			$('#d_bname').val(name);
-			$('#d_bid').val(id);
-			$('#d_breg').val(date);
-			$('#d_bphone').val(phone);
-			$('#d_bemail').val(email);
-			$('#d_bbrith').val(brith);
-			$('#d_bgender').val(gender);
-			$('#d_baddr').val(addr);
-			$('#d_bmile').val(mile);
-
-		});
-
-		// ´İ±â ¹öÆ°½Ã »ó¼¼º¸±â Ã¢ÀÌ ´İÈù´Ù.
-		$('#close').click(function() {
-			$('#detail').hide();
-		});
-
-		var frm = $('#pageForm');
-
-		// Å¬·¡½º pageLinks ¾ÈÀÇ li ÅÂ±× ¾ÈÀÇ a ÅÂ±×¸¦ Ã£¾Æ¼­ click ÀÌº¥Æ®¸¦ Ä¿½ºÅÍ¸¶ÀÌÂ¡
-		$('.pageLinks li a').click(function() {
-			event.preventDefault(); // ±âº» ÀÌº¥Æ® Ã³¸® ¹æ½ÄÀ» ¹æÁö(¸·À½)
-			// pageForm ¾È¿¡ ÀÖ´Â name="page"ÀÎ ¿ä¼Ò¸¦ Ã£¾Æ¼­
-			// ÀÌµ¿ÇÒ ÆäÀÌÁö ¹øÈ£¸¦ ¼¼ÆÃ
-			var targetPage = $(this).attr('href');
-			console.log('targetPage=' + targetPage);
-			frm.find('[name="page"]').val(targetPage);
-			// ÆäÀÌÂ¡ È­¸éÀ¸·Î º¸³»±â À§ÇÑ action Á¤º¸
-			frm.attr('action', 'listview');
-			// ÆäÀÌÂ¡ È­¸éÀ» Ã³¸®ÇÏ´Â ControllerÀÇ method(¿äÃ» Ã³¸® ¹æ½Ä)
-			frm.attr('method', 'get');
-			// Æû ¾ç½ÄÀ» ¼­¹ö·Î Àü¼Û
-			frm.submit();
-		});
-		
+						</fieldset>
 				
-		$('#searchBtn').on( "click", function(event) { 
-				
-				self.location = "searchlist" 
-					+ "?page=1"
-					+ "&perPage=5"
-					+ "&searchType="
-					+ $("select option:selected").val()
-					+ "&keyword=" + encodeURI($('#keywordInput').val());
-				
-		 
-				 	
+				</div>
+			</div>
+		</section>
+		<section id="footer-bar">
+			<div class="row">
+				<div class="span3">
+					<h4>Navigation</h4>
+					<ul class="nav">
+						<li><a href="./index.html">Homepage</a></li>
+						<li><a href="./about.html">About Us</a></li>
+						<li><a href="./contact.html">Contac Us</a></li>
+						<li><a href="./cart.html">Your Cart</a></li>
+						<li><a href="./register.html">Login</a></li>
+					</ul>
+				</div>
+				<div class="span4">
+					<h4>My Account</h4>
+					<ul class="nav">
+						<li><a href="#">My Account</a></li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="#">Wish List</a></li>
+						<li><a href="#">Newsletter</a></li>
+					</ul>
+				</div>
+				<div class="span5">
+					<p class="logo">
+						<img src="<c:url value='resources/themes/images/logo.png' />"
+							class="site_logo" alt="">
+					</p>
+					<p>Lorem Ipsum is simply dummy text of the printing and
+						typesetting industry. the Lorem Ipsum has been the industry's
+						standard dummy text ever since the you.</p>
+					<br /> <span class="social_icons"> <a class="facebook"
+						href="#">Facebook</a> <a class="twitter" href="#">Twitter</a> <a
+						class="skype" href="#">Skype</a> <a class="vimeo" href="#">Vimeo</a>
+					</span>
+				</div>
+			</div>
+		</section>
+		<section id="copyright">
+			<span>Copyright 2013 bootstrappage template All right
+				reserved.</span>
+		</section>
+	</div>
+	<script src="<c:url value='/resources/themes/js/common.js' />"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#checkout').click(function(e) {
+				document.location.href = "checkout.html";
 			});
 
-		
-		
+		});
+	</script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(
+				function() {
+					// a íƒœê·¸ í´ë¦­ì‹œ -> ìˆ˜ì •ì›ì¸„ ì›ë˜ì˜ aíƒœê·¸ ë°©ì‹ìœ¼ë¡œ!
+					$('#table').on('click', 'button', function() {
+						$('#detail').show();
 
-	});
-</script>
+						var data = $(this).parent().parent();
 
+						var bno = $(data).children('.bno').text();
+						var name = $(data).children('.bname').text();
+						var id = $(data).children('.bid').text();
+						var date = $(data).children('.breg').text();
+						var phone = $(data).children('.phone').text();
+						var email = $(data).children('.email').text();
+						var brith = $(data).children('.birth').text();
+						var gender = $(data).children('.gender').text();
+						var addr = $(data).children('.addr').text();
+						var mile = $(data).children('.mile').text();
+
+						$('#d_bno').val(bno);
+						$('#d_bname').val(name);
+						$('#d_bid').val(id);
+						$('#d_breg').val(date);
+						$('#d_bphone').val(phone);
+						$('#d_bemail').val(email);
+						$('#d_bbrith').val(brith);
+						$('#d_bgender').val(gender);
+						$('#d_baddr').val(addr);
+						$('#d_bmile').val(mile);
+
+					});
+
+					// ë‹«ê¸° ë²„íŠ¼ì‹œ ìƒì„¸ë³´ê¸° ì°½ì´ ë‹«íŒë‹¤.
+					$('#close').click(function() {
+						$('#detail').hide();
+					});
+
+					var frm = $('#pageForm');
+
+					// í´ë˜ìŠ¤ pageLinks ì•ˆì˜ li íƒœê·¸ ì•ˆì˜ a íƒœê·¸ë¥¼ ì°¾ì•„ì„œ click ì´ë²¤íŠ¸ë¥¼ ì»¤ìŠ¤í„°ë§ˆì´ì§•
+					$('.pageLinks li a').click(function() {
+						event.preventDefault(); // ê¸°ë³¸ ì´ë²¤íŠ¸ ì²˜ë¦¬ ë°©ì‹ì„ ë°©ì§€(ë§‰ìŒ)
+						// pageForm ì•ˆì— ìˆëŠ” name="page"ì¸ ìš”ì†Œë¥¼ ì°¾ì•„ì„œ
+						// ì´ë™í•  í˜ì´ì§€ ë²ˆí˜¸ë¥¼ ì„¸íŒ…
+						var targetPage = $(this).attr('href');
+						console.log('targetPage=' + targetPage);
+						frm.find('[name="page"]').val(targetPage);
+						// í˜ì´ì§• í™”ë©´ìœ¼ë¡œ ë³´ë‚´ê¸° ìœ„í•œ action ì •ë³´
+						frm.attr('action', 'listview');
+						// í˜ì´ì§• í™”ë©´ì„ ì²˜ë¦¬í•˜ëŠ” Controllerì˜ method(ìš”ì²­ ì²˜ë¦¬ ë°©ì‹)
+						frm.attr('method', 'get');
+						// í¼ ì–‘ì‹ì„ ì„œë²„ë¡œ ì „ì†¡
+						frm.submit();
+					});
+
+					$('#searchBtn').on( "click", function(event) { 
+						
+						self.location = "searchlist" 
+							+ "?page=1"
+							+ "&perPage=5"
+							+ "&searchType="
+							+ $("select option:selected").val()
+							+ "&keyword=" + encodeURI($('#keywordInput').val());
+				 	
+					});
+					 
+				});
+	</script>
+
+
+</body>
 </html>
