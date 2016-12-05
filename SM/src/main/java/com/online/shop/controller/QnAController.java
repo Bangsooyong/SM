@@ -54,6 +54,34 @@ public class QnAController {
 		maker.setPageData();
 		model.addAttribute("pageMaker", maker);
 	}
+	
+	@RequestMapping(value="qa", method=RequestMethod.GET)
+	public void qaMain(Integer page, QnaVO vo, Model model) {
+		// 페이지 criteria 생성자 만들기
+		PageCriteria c = new PageCriteria();
+		if (page != null){
+			c.setPage(page);
+		}
+		
+		List<QnaVO> list = dao.selectQna(c);
+
+		List<QnaRVO> listR = new ArrayList<>();
+		for(QnaVO volist : list) {
+			if(volist.getQna_reply() == 1) {
+			QnaRVO rvo = dao.selectQnaR(volist);
+			listR.add(rvo);
+			}
+		}
+		model.addAttribute("listQnA", list);
+		model.addAttribute("listQnAR", listR);
+		
+		// 페이지 메이커 생성
+		PageMaker maker = new PageMaker();
+		maker.setCrieria(c);
+		maker.setTotalCount(dao.getNumOfRecordsQna());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
+	}
 
 	
 	@RequestMapping(value="insertQnA", method=RequestMethod.GET)

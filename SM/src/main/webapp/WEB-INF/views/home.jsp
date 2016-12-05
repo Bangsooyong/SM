@@ -35,7 +35,7 @@ ul.tabs li {
 }
 ul.tabs li.active {
     background: #FFFFFF;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid darkred;
 }
 .tab_container {
     border: 1px solid #eee;
@@ -80,7 +80,7 @@ ul.tabs li.active {
 	<a href="help/mainlist">고객센터</a><br/><br/>
 	<a href="board/qna">상품QNA</a>
 	<a href="BoardRev/review">상품후기</a><br/><br/>
-	<a href="detailqr">Q&A and Review</a><br/><br/> 
+	<a href="board/qa">Q&A and Review</a><br/><br/> 
 	
 	<div id="container">
     <ul class="tabs">
@@ -98,6 +98,7 @@ ul.tabs li.active {
                 <li><a href="#">이것은 두 번째 탭의</a>
                 </li>
             </ul>
+            
         </div>
         
         <!-- #tab1 -->
