@@ -74,7 +74,7 @@ ul.tabs li.active {
 	<a href="#">판매자 로그인</a><br/><br/>
 	<a href="#">구매자 마이페이지</a>
 	<a href="#">판매자 마이페이지</a>
-	<a href="admin/admin_mypage">관리지 마이페이지</a><br/><br/>
+	<a href="admin/admin_bootstrap">관리지 마이페이지</a><br/><br/>
 	<a href="admin/seller_admin_main">판매자 샵</a><br/><br/>
 	<a href="#">장바구니</a><br/><br/>
 	<a href="help/mainlist">고객센터</a><br/><br/>
