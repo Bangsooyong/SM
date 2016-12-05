@@ -39,7 +39,7 @@
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
 </head>
-<body>
+<body class="bb">
 	<div id="top-bar" class="container">
 		<div class="row">
 			<div class="span4">
@@ -89,26 +89,21 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+		 
+			<h3 class="titlem"> 
+				<span><strong>관리자</strong> 페이지</span> 
+			</h3> 
 			
 		</section>
-		<h3>
-				<a href="admin_bootstrap">홈</a> 
-				</h3> 
 		<section class="main-content">
 				
 			<div class="row">
 			
 				<div class="span5"> 
 				
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -121,12 +116,14 @@
 								<label class="control-label"><a href="buyf">전체 판매 내역</a></label>
 							</div>
 							<div class="control-group">
-								<label class="control-label"><a href="total">전체 판매
+								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+							</fieldset>
+				<h3 class="title">
+					<span class="text"><strong>회원</strong> 관리</span>
+				</h3>
+						<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -144,11 +141,11 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>쇼핑몰</strong> 현황</span>
-					</h4>
+					</h3>
 					<form action="#" method="post" class="form-stacked">
-						<fieldset>
+						<fieldset class="cf">
 							<div class="control-group">
 								<table>
 									<tr>

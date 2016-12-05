@@ -32,7 +32,7 @@
 <script src="<c:url value='/resources/themes/js/superfish.js' />"></script>
 <script
 	src="<c:url value='/resources/themes/js/jquery.scrolltotop.js' />"></script>
-
+ 
 
 <!--[if lt IE 9]>			
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -89,19 +89,18 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+			
+			<h3 class="titlem">
+				<span><strong>관리자</strong> 페이지</span>
+			</h3> 
+			
 		</section>
 		<section class="main-content">
 			<div class="row">
 				<div class="span5">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -117,9 +116,11 @@
 								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+							</fieldset>
+					<h3 class="title">
+						<span class="text"><strong>회원</strong> 관리</span>
+					</h3>
+						<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -137,21 +138,21 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>구매자 </strong> 회원 목록</span>
-					</h4>
+					</h3>
 					
 					
 						<fieldset>
 							<div class="control-group">
-								<select name="searchType">
+								<select name="searchType" class="searchSelect">
 			<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
 			<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':''}"/>>회원 ID</option>
 			<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':''}"/>>회원 명</option>
 			<option value="in" <c:out value="${cri.searchType eq 'in'?'selected':''}"/>>회원 ID or 회원 명</option>>
 		</select>
 				
-		<input type="text" name="keyword" id="keywordInput" value='${cri.keyword }' />
+		<input type="text" name="keyword" id="keywordInput" class="searchi" value='${cri.keyword }' />
 		<button id='searchBtn'>Search</button>	
 
 		<table id="table">
@@ -176,7 +177,7 @@
 					<td class="bid">${buyer.b_id}</td>
 					<td class="breg"><fmt:formatDate value="${buyer.b_reg }"
 							pattern="yyyy-MM-dd HH:mm:ss" /></td>
-					<td><button>상세 정보</button></td>
+					<td><button class="detail">상세 정보 보기</button></td>
 					<td class="phone" style="display: none;">${buyer.b_phone }</td>
 					<td class="email" style="display: none;">${buyer.b_email }</td>
 					<td class="birth" style="display: none;">${buyer.b_birth }</td>
@@ -188,6 +189,7 @@
 		</table>
 
 		<ul class="pageLinks" >
+			<li>-</li>
 			<c:if test="${pageMaker.hasPrev }">
 				<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 			</c:if>
@@ -200,7 +202,7 @@
 			<c:if test="${pageMaker.hasNext }">
 				<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 			</c:if>
-
+			<li>-</li>
 		</ul>
 
 		<%-- 현재 페이지, 페이지 당 보여줄 게시글 개수를 서버로 보내주기 위해서,
@@ -218,17 +220,16 @@
 
 		<h4>회원 상세 정보</h4>
 
-		<label for="bno">회원번호</label> 
-		<input type="text" name="d_bno"	id="d_bno" readonly><br />
-		<label for="bname">이름</label> <input type="text" name="d_bname" id="d_bname" readonly><br /> 
-		<label for="bid">아이디</label> <input type="text" name="d_bid" id="d_bid" readonly><br /> 
-		<label for="bphone">연락처</label> <input type="text" name="d_bphone" id="d_bphone" readonly><br />
-	    <label for="breg">가입일</label> <input type="text" name="d_breg" id="d_breg"	readonly><br />
-	    <label for="bemail">이메일</label> <input	type="text" name="d_bemail" id="d_bemail" readonly><br />
-	    <label for="bbirth">생일</label> <input type="text" name="d_bbirth" id="d_bbrith" readonly><br /> 
-	    <label for="bgender">성별</label> 	<input type="text" name="d_bgender" id="d_bgender" readonly><br />
-		<label for="baddr">주소</label> <input type="text" name="d_baddr"	id="d_baddr" readonly><br /> <label for="bmile">마일리지</label>
-		<input type="text" name="d_bmile" id="d_bmile" readonly><br />
+		<label for="bno">회원번호</label> <input type="text" name="d_bno"	id="d_bno" class="detail_i"  readonly><br />
+		<label for="bname">이름</label> <input type="text" name="d_bname" id="d_bname" class="detail_i" readonly><br /> 
+		<label for="bid">아이디</label> <input type="text" name="d_bid" id="d_bid" class="detail_i" readonly><br /> 
+		<label for="bphone">연락처</label> <input type="text" name="d_bphone" id="d_bphone" class="detail_i" readonly><br />
+	    <label for="breg">가입일</label> <input type="text" name="d_breg" id="d_breg"	class="detail_i" readonly><br />
+	    <label for="bemail">이메일</label> <input	type="text" name="d_bemail" id="d_bemail" class="detail_i" readonly><br />
+	    <label for="bbirth">생일</label> <input type="text" name="d_bbirth" id="d_bbrith" class="detail_i" readonly><br /> 
+	    <label for="bgender">성별</label> 	<input type="text" name="d_bgender" id="d_bgender" class="detail_i" readonly><br />
+		<label for="baddr">주소</label> <input type="text" name="d_baddr"	id="d_baddr"  class="detail_i" readonly><br />
+		<label for="bmile">마일리지</label> <input type="text" name="d_bmile" id="d_bmile" class="detail_i" readonly><br />
 		<button id="close">닫기</button>
 	</div>
 
