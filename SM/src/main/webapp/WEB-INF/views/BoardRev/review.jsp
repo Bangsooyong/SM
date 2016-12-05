@@ -83,11 +83,11 @@
 			</tr>
 
 			<tr>
-				<td class="modify" id="modify${state.index }" modData="${state.index }">
+				<td class="modify" id="revmodify${state.index }" modData="${state.index }">
 					
 					<c:if test="${list.rev_reply eq 0 }">
 						<div modData="${state.index }">
-						<form id="frm${state.index }" method="post" >
+						<form id="revfrmmodify${state.index }" method="post" >
 							<input type="text" name="rev_r_cont" placeholder="답글작성" maxlength="100" required/>
 							
 							<input type="hidden" name="rev_no" value="${list.rev_no}"/>
@@ -103,8 +103,8 @@
 						<c:if test="${list.rev_no eq listr.rev_no }">
 						
 						<div modData="${state.index }">
-						<form id = "updatefrm${state.index }" method="post">
-							<input type="text" id="replyCont${state.index }" name="rev_r_cont" 
+						<form id = "updaterevfrm${state.index }" method="post">
+							<input type="text" id="revreplyCont${state.index }" name="rev_r_cont" 
 							maxlength="100" value="${listr.rev_r_cont }" 
 							readonly style="border: none; color:maroon;"/>
 							<input type="hidden" name="rev_r_no" id="rev_r_no" value="${listr.rev_r_no }"/>
@@ -112,9 +112,9 @@
 							<input type="hidden" name="rev_no" id="rev_no" value="${listr.rev_no }" />
 						</form>
 						
-						<button type="submit" class="updateReply">수정</button>
-						<button type="submit" class="updateReply1" style="display: none;">수정완료</button>
-						<button type="submit" class="deleteReply">삭제</button>
+						<button type="submit" class="updateRevReply">수정</button>
+						<button type="submit" class="updateRevReply1" style="display: none;">수정완료</button>
+						<button type="submit" class="deleteRevReply">삭제</button>
 						</div>
 						</c:if>
 						</c:forEach>
@@ -159,7 +159,6 @@
 		
 	<script>
 	$(document).ready(function() {
-		var y = 0;
 		
 		$('#btnReviewInsert').click(function() {
 			location = "insertReview";
@@ -167,8 +166,7 @@
 		
 		$('.insertReply').click(function() {
 			var x = $(this).parent().attr('modData');
-
-			var frm = $('#frm'+x);
+			var frm = $('#revfrmmodify'+x);
 			frm.attr('action', 'insertReply');
 			frm.attr('mehtod', 'post');
 			frm.submit();
@@ -177,38 +175,31 @@
 		
 		$('.revReply').click(function () {
 			var x = $(this).attr('modData');
-			$('#modify'+x).toggle();
+			$('#revmodify'+x).toggle();
 				
-/* 			if(y == 0) {
-				$('#modify'+x).show();
-				y = 1;
-				} else {
-				$('#modify'+x).hide();
-				y = 0;
-				}; */
 		});
 		
 		
-		$('.updateReply').click(function () {
+		$('.updateRevReply').click(function () {
 			/* $('#replyCont').attr("readonly",false); */
 			var x = $(this).parent().attr('modData');
 			alert("답변 내용 수정 가능! 완료 버튼 활성화")
-			$('#replyCont'+x).attr("readonly", false);
-			$('.updateReply1').show();
+			$('#revreplyCont'+x).attr("readonly", false);
+			$('.updateRevReply1').show();
 			$(this).hide();
 		});
 		
-		$('.updateReply1').click(function() {
+		$('.updateRevReply1').click(function() {
 			var x = $(this).parent().attr('modData');
-			var frm = $('#updatefrm'+x);
+			var frm = $('#updaterevfrm'+x);
 			frm.attr('action', 'updateReply');
 			frm.attr('mehtod', 'post');
 			frm.submit();
 		})
 		
-		$('.deleteReply').click(function() {
+		$('.deleteRevReply').click(function() {
 			var x = $(this).parent().attr('modData');
-			var frm = $('#updatefrm'+x);
+			var frm = $('#updaterevfrm'+x);
 			frm.attr('action', 'deleteReply');
 			frm.attr('mehtod', 'post');
 			frm.submit();
@@ -234,9 +225,9 @@
 		frm.submit();
 	});
 
-		if ('${insert_reply}' == 'success') {
+		if ('${insert_review_reply}' == 'success') {
 			alert('답변 등록 성공');
-		} else if ('${insert_reply}' == 'fail') {
+		} else if ('${insert_review_reply}' == 'fail') {
 			alert('답변 등록  실패!');
 		}
 		

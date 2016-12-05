@@ -82,9 +82,9 @@ public class ReviewController {
 		}
 
 		if (result == 1) {
-			attr.addFlashAttribute("insert_reply", "success");
+			attr.addFlashAttribute("insert_review_reply", "success");
 		} else {
-			attr.addFlashAttribute("insert_reply", "fail");
+			attr.addFlashAttribute("insert_review_reply", "fail");
 		}
 
 		return "redirect:review";
