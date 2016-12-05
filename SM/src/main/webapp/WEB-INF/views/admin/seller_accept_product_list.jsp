@@ -92,7 +92,7 @@
 		<section class="header_text sub">
 			
 			<h3 class="titlem">
-				<span><strong>관리자</strong> 페이지</span>
+				<span><a href="admin_bootstrap"><strong>관리자</strong> 페이지</a></span>
 			</h3> 
 			
 		</section>
