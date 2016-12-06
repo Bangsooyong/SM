@@ -161,7 +161,7 @@
 		<input type="text" name="keyword" id="keywordInput" class="searchi" value='${cri.keyword }' />
 		<button id='searchBtn'>Search</button>
 
-		<table id="table">
+		<table id="table" class="buyerT">
 			<tr>
 				<th>회원번호</th>
 				<th>회원명</th>

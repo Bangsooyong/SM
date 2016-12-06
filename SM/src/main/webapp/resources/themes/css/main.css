@@ -91,6 +91,7 @@ ul li a,a{
     transition: all 0.2s linear;
 }
 ul.pageLinks{
+	font-family: InterparkGothicOTFB; 
 	font-size: 16px;
 }
 /* 상세보기 창에서 보여지는 css 
@@ -154,25 +155,24 @@ div.span7{
 }
 /* 아래 2개 제외한 나머지 content 마진과 폰트 사이즈 */
 fieldset{
-	margin-left: 10%;
-	font-size: 17px;
+	margin-left: 8%;
+	font-size: 15px;
 }
 /* 전체 주문 요청 내역, 전체 판매 내역 content부분 마진  */
 .fieldb{
-	margin-left: 5%; 
+	margin-left: 0%; 
 	font-size: 15px;
 	
 }
-
+/* 쇼핑몰 현황 마진 */
 fieldset.cf {
-	margin-left: 5%; 
+	margin-left: 15%; 
 }
 table{
 	border-spacing: 5px;
 }
 
 }
-
 
 a{
    color:#EA9999;
@@ -1020,6 +1020,7 @@ button.detail {
    font-size: 14px;
    text-decoration: none;
    vertical-align: middle;
+   display: inline;
    }
 button.detail:hover {
     text-shadow: #914158 0 1px 0;
@@ -1070,5 +1071,70 @@ button.detail:hover {
    background-image: -ms-linear-gradient(top, #eb9999 0%, #f57575 100%);
    color: #fff;
    }
+
+
+/* buyr, buyf의 테이블 정렬 부분  */
+ .price {
+	text-align: right; 
+}
+.buyrt th{
+	width: 100px; 
+}
+.buyrt td{
+	text-align: center;
+}
+.buyft th{
+	width: 100px; 
+}
+.buyft td{
+	text-align: center;
+}
+.buy_no{
+	width: 70px;
+}
+.buy_date{
+	width: 150px;
+}
+.p_name{
+	width: 140px;
+}
   
-  
+/* -------------------------------------------여기까지 */  
+/* 판매자 회원 목록 테이블 정렬 부분  */
+.sellert th{
+	width: 80px;
+}
+.sellert td{
+	text-align: center;
+}
+.s_reg, .s_acc{
+	width: 200px; 
+}
+
+/* ---------------------------------------------여기까지 */
+/* 판매물 승인 페이지 테이블 정렬 부분  */
+.productT th{
+	width: 90px;
+}
+.productT td{
+	text-align: center;
+}
+
+/* ---------------------------------------------요기요~  */
+/* 구매자 목록 페이지 테이블 정렬 부분  */
+.buyerT th{
+	width: 90px;
+}
+.buyerT td{
+	text-align: center;
+}
+.breg {
+	width: 200px;
+}
+.buyerT .detail{
+	width: 120px; 
+}
+/* ---------------------------------------------여기까지!  */
+
+
+            

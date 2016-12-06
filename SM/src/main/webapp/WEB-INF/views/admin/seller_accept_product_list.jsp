@@ -161,7 +161,7 @@
 	<button id='searchBtn'>Search</button>
 
 
-	<table>
+	<table class="productT">
 		<tr>
 			<th>회원번호</th>
 			<th>판매자 ID</th>
@@ -179,7 +179,7 @@
 					<td>${pvo.s_id}</td>
 					<td>${pvo.p_no }</td>
 					<td>${pvo.p_name}<!--옵션정보 추가해줘야함 정훈이 코드 참고 --></td>
-					<td><c:if test="${pvo.p_acc == 0 }">미승인</c:if>
+					<td class="s_acc"><c:if test="${pvo.p_acc == 0 }"><span class="sp">미승인&nbsp;&nbsp;&nbsp;</span><button class="detail" name="accept">승인</button></c:if>
 						<c:if test="${pvo.p_acc == 1 }">승인</c:if>
 					</td>
 				</c:if>
@@ -310,7 +310,34 @@
 							+ "&keyword=" + encodeURI($('#keywordInput').val());
 				 	
 					});
-					 
+					
+					$('.detail').on("click", function() {
+						// s_no 값 찾기 	
+						var p_no = this.parentNode.parentNode.childNodes[5].innerHTML;
+						var p_acc = $(this).parent().children('.sp');
+						var btn = $(this);
+						console.log(p_no);
+						
+						 
+						   $.ajax({
+				                 type: "get",
+				                 url: "productAcc",
+				                 headers : {
+				                  'Accept' : 'application/json',
+				                  'Content-Type' : 'application/json'
+				               },
+				               dataType: "json",
+				                 data: {p_no: p_no},
+				                 success: function(data){
+				                        if (data == 1){	
+				                    	p_acc.text("승인");
+				                    	btn.hide();
+				                    	
+				                    }
+				                 },
+				             });  
+					});
+					
 				});
 	</script>
 

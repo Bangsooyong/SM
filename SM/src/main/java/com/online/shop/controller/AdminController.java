@@ -1,8 +1,11 @@
 package com.online.shop.controller;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.type.IntegerTypeHandler;
 import org.slf4j.Logger;
@@ -201,9 +204,44 @@ public class AdminController {
 				
 	}
 	
+	// 얘는 통계;;;
 	@RequestMapping(value="/admin/total", method = RequestMethod.GET)
 	public void adminBuyTotal(Model model) {
 	}
+	
+	
+	//판매자 승인 요청 콘트롤러
+	@RequestMapping(value="/admin/sellerAcc", method=RequestMethod.GET)
+	public void updateSellerAcc(int s_no, HttpServletResponse response) throws IOException{
+		logger.info("updateAcc 실행");
+		
+		int result = sellerservice.updateAcc(s_no);
+
+		if (result==1){
+			logger.info("승인 업데이트 성공");
+			List<SellerVO> list = sellerservice.read();
+			logger.info(list.get(s_no) + " - > 승인번호 : " + list.get(s_no).getS_acc());
+			response.getWriter().print(1);	
+		}	
+			
+	}
+	
+	//판매자 승인 요청 콘트롤러
+		@RequestMapping(value="/admin/productAcc", method=RequestMethod.GET)
+		public void updateProductAcc(int p_no, HttpServletResponse response) throws IOException{
+			logger.info("updateAcc 실행");
+			
+			int result = productservice.productAcc(p_no);
+			
+
+			if (result==1){
+				logger.info("승인 업데이트 성공");
+				
+
+				response.getWriter().print(1);	
+			}	
+				
+		}
 	
 	
 }

@@ -194,11 +194,11 @@
 									<c:forEach var="list" items="${list }">
 										<tr>
 
-											<td>${list.buy_no }</td>
-											<td><fmt:formatDate value="${list.buy_date }"
+											<td class="buy_no">${list.buy_no }</td>
+											<td class="buy_date"><fmt:formatDate value="${list.buy_date }"
 													pattern="yyyy년 MM월 dd일" />&emsp;&emsp;</td>
 											<td>${list.p_name }&emsp;(${list.o_cont })</td>
-											<td>${list.p_price }원</td>
+											<td class="price">${list.p_price }원</td>
 											<td>${list.s_id }&emsp;</td>
 
 											<td>${list.b_id }&emsp;</td>

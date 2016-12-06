@@ -148,7 +148,7 @@
 					<form action="#" method="post" class="form-stacked">
 						<fieldset class="fieldb">
 							<div class="control-group">
-								<table>
+								<table class="buyft">
 									<tr>
 										<th>주문번호</th>
 										<th>주문날짜&emsp;</th>
@@ -163,11 +163,11 @@
 									</tr>
 									<c:forEach var="list" items="${list }">
 										<tr>
-											<td>${list.buy_no }</td>
-											<td><fmt:formatDate value="${list.buy_date }"
+											<td class="buy_no">${list.buy_no }</td>
+											<td class="buy_date"><fmt:formatDate value="${list.buy_date }"
 													pattern="yyyy년 MM월 dd일" />&emsp;&emsp;</td>
-											<td>${list.p_name }&emsp;(${list.o_cont })</td>
-											<td>${list.p_price }원</td>
+											<td class="p_name">${list.p_name }&emsp;(${list.o_cont })</td>
+											<td class="price">${list.p_price }원</td>
 											<td>판매자ID&emsp;</td>
 											<td>${list.b_id }&emsp;</td>
 											<td>배송완료</td>

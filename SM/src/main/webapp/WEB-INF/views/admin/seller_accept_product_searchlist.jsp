@@ -160,7 +160,7 @@
 	<button id='searchBtn'>Search</button>
 
 
-	<table>
+	<table class="productT">
 		<tr>
 			<th>회원번호</th>
 			<th>판매자 ID</th>

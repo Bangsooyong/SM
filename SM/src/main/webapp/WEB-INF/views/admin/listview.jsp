@@ -20,6 +20,7 @@
 <link href="<c:url value='/resources/themes/css/bootstrappage.css' />"
 	rel="stylesheet" />
 
+
 <!-- global styles -->
 <link href="<c:url value='/resources/themes/css/flexslider.css' />"
 	rel="stylesheet" />
@@ -32,7 +33,7 @@
 <script src="<c:url value='/resources/themes/js/superfish.js' />"></script>
 <script
 	src="<c:url value='/resources/themes/js/jquery.scrolltotop.js' />"></script>
- 
+
 
 <!--[if lt IE 9]>			
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -155,7 +156,7 @@
 		<input type="text" name="keyword" id="keywordInput" class="searchi" value='${cri.keyword }' />
 		<button id='searchBtn'>Search</button>	
 
-		<table id="table">
+		<table id="table" class="buyerT">
 			<tr>
 				<th>회원번호</th>
 				<th>회원명</th>
@@ -204,7 +205,7 @@
 			</c:if>
 			<li>-</li>
 		</ul>
-
+		
 		<%-- 현재 페이지, 페이지 당 보여줄 게시글 개수를 서버로 보내주기 위해서,
 사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
 		<form id="pageForm">
@@ -296,6 +297,8 @@
 	<script>
 		$(document).ready(
 				function() {
+					
+					
 					// a 태그 클릭시 -> 수정원츄 원래의 a태그 방식으로!
 					$('#table').on('click', 'button', function() {
 						$('#detail').show();
@@ -361,6 +364,8 @@
 					});
 					 
 				});
+		
+		
 	</script>
 
 

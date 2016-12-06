@@ -147,13 +147,13 @@
 							<div class="control-group">
 								<select name = "searchType" class="searchSelect">
 		<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-		<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>회원번호</option>
+		<option value="b" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>회원번호</option>
 		<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':'' }"/>>판매자 ID</option>
 		<option value="e" <c:out value="${cri.searchType eq 'e'?'selected':'' }"/>>이메일</option>
-		<option value="ni" <c:out value="${cri.searchType eq 'ni'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
-		<option value="ne" <c:out value="${cri.searchType eq 'ne'?'selected':'' }"/>>회원번호 or 이메일</option>
+		<option value="bi" <c:out value="${cri.searchType eq 'ni'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
+		<option value="be" <c:out value="${cri.searchType eq 'ne'?'selected':'' }"/>>회원번호 or 이메일</option>
 		<option value="ie" <c:out value="${cri.searchType eq 'ie'?'selected':'' }"/>>판매자 ID or 이메일</option>
-		<option value="nie" <c:out value="${cri.searchType eq 'nie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
+		<option value="bie" <c:out value="${cri.searchType eq 'nie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
 		
 		 
 	</select> 
@@ -161,7 +161,7 @@
 	<button id='searchBtn'>Search</button>
 
 
-	<table>
+	<table class="sellert">
 		<tr>
 			<th>회원번호</th>
 			<th>판매자 ID</th>
@@ -173,11 +173,11 @@
 			<tr>
 				<td>${svo.s_no}</td>
 				<td>${svo.s_id}</td>
-				<td><fmt:formatDate value="${svo.s_reg }"
+				<td class="s_reg"><fmt:formatDate value="${svo.s_reg }"
 						pattern="yyyy-MM-dd HH:mm:ss" /></td>
 				<td>${svo.s_email}</td>
-				<td><c:if test="${svo.s_acc == 0 }">미승인</c:if>
-					<c:if test="${svo.s_acc == 1 }">승인</c:if>
+				<td class="s_acc"><c:if test="${svo.s_acc == 0 }"><span class="sp">미승인&nbsp;&nbsp;&nbsp;</span><button class="detail" name="accept">승인</button></c:if>
+								<c:if test="${svo.s_acc == 1 }">승인</c:if>
 				</td>
 			</tr>
 		</c:forEach>
@@ -322,6 +322,35 @@
 							+ $("select option:selected").val()
 							+ "&keyword=" + encodeURI($('#keywordInput').val());
 				 	
+					});
+					
+					$('.detail').on("click", function() {
+						// s_no 값 찾기 	
+						var s_no = this.parentNode.parentNode.childNodes[1].innerHTML;
+						var s_acc = $(this).parent().children('.sp');
+						var btn = $(this);
+						console.log(s_acc.text());
+						
+						   $.ajax({
+				                 type: "get",
+				                 url: "updateAcc",
+				                 headers : {
+				                  'Accept' : 'application/json',
+				                  'Content-Type' : 'application/json'
+				               },
+				               dataType: "json",
+				                 data: {s_no: s_no},
+				                 success: function(data){
+				                    if (data == 1){	
+				                    	s_acc.text("승인");
+				                    	btn.hide();
+				                    	/* console.log(s_acc); */
+				                    }
+				                 },
+				             });  
+					
+					
+					
 					});
 					 
 				});
