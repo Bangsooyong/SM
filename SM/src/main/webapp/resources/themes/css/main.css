@@ -94,6 +94,7 @@ ul.pageLinks{
 	font-family: InterparkGothicOTFB; 
 	font-size: 16px;
 }
+
 /* 상세보기 창에서 보여지는 css 
 ------------------------------------------------ */
 #detail {
@@ -131,24 +132,39 @@ ul.pageLinks{
 .pageLinks li {
 	list-style-type: none;
 	display: inline;
+	
+}
+.pageLinks #page{
+	
+	
+	border: 2px solid black;       	
+	border-left-width: 5px; 
+	border-right-width: 5px;
+	border-color: #ea9999; 
+	background-color: #ea9999;
+	
+}
+.pageLinks #page:hover{
+	border: 2px solid black;       	
+	border-left-width: 5px; 
+	border-right-width: 5px;
+	border-color: #393333; 
+	background-color: #393333;
 }
 /* 페이징 번호 링크 걸어진 색  */
 .pageLinks li a{
-	color:#E06666;
+	color: white;
 }
-/* 페이징 번호 링크에 마우스올릴때  */
-.pageLinks li a:hover{
-	color: #393333;
-}
-/* 왼쪽 리스트 링크 css  */
+/* 전체 화면에서 왼쪽 리스트 링크 css  */
 .control-label a{
 	color: #5f5f59;
 	font-size: 14px;
 }
-/* 왼쪽 리스트 너비  */
+
 div.span5{
 	width: 25%;
 }
+/*  --------여기까지  */
 /* 오른쪽 상세 부분 너비  */
 div.span7{
 	width: 68%; 
