@@ -89,19 +89,18 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+			
+			<h3 class="titlem">
+				<span><a href="admin_bootstrap"><strong>관리자</strong> 페이지</a></span>
+			</h3> 
+			
 		</section>
 		<section class="main-content">
 			<div class="row">
 				<div class="span5">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -117,9 +116,11 @@
 								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+							</fieldset>
+					<h3 class="title">
+						<span class="text"><strong>회원</strong> 관리</span>
+					</h3>
+						<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -137,14 +138,14 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>구매자 </strong> 회원 목록</span>
-					</h4>
+					</h3>
 					
 					 
 						<fieldset>
 							<div class="control-group">
-								<select name="searchType">
+								<select name="searchType" class="searchSelect">
 			<option value="n"
 				<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
 			<option value="i"
@@ -157,10 +158,10 @@
 				<c:out value="${cri.searchType eq 'in'?'selected':''}"/>>회원
 				ID or 회원 명</option>>
 		</select> 
-		<input type="text" name="keyword" id="keywordInput" value='${cri.keyword }' />
+		<input type="text" name="keyword" id="keywordInput" class="searchi" value='${cri.keyword }' />
 		<button id='searchBtn'>Search</button>
 
-		<table id="table">
+		<table id="table" class="buyerT">
 			<tr>
 				<th>회원번호</th>
 				<th>회원명</th>
@@ -182,7 +183,7 @@
 					<td class="bid">${buyer.b_id}</td>
 					<td class="breg"><fmt:formatDate value="${buyer.b_reg }"
 							pattern="yyyy-MM-dd HH:mm:ss" /></td>
-					<td><button>상세 정보</button></td>
+					<td><button class="detail">상세 정보 보기</button></td>
 					<td class="phone" style="display: none;">${buyer.b_phone }</td>
 					<td class="email" style="display: none;">${buyer.b_email }</td>
 					<td class="birth" style="display: none;">${buyer.b_birth }</td>
@@ -194,7 +195,8 @@
 		</table>
 
 		<ul class="pageLinks">
-				<li id="main"><a href="${pageMaker.startPageNum }">처음으로</a></li>
+			<li>-</li>
+			<li id="main"><a href="${pageMaker.startPageNum }">처음으로</a></li>
 			<c:if test="${searchpageMaker.hasPrev }">
 				<li id="page"><a href="${searchpageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 			</c:if>
@@ -207,6 +209,7 @@
 			<c:if test="${searchpageMaker.hasNext }">
 				<li id="page"><a href="${searchpageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 			</c:if>
+			<li>-</li>
 
 		</ul>
 

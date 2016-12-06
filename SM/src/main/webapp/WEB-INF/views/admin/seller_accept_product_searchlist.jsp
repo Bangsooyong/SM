@@ -89,19 +89,18 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+			
+			<h3 class="titlem">
+				<span><a href="admin_bootstrap"><strong>관리자</strong> 페이지</a></span>
+			</h3> 
+			
 		</section>
 		<section class="main-content">
 			<div class="row">
 				<div class="span5">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매물</strong> 승인 내역</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -117,9 +116,11 @@
 								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+							</fieldset>
+					<h3 class="title">
+						<span class="text"><strong>회원</strong> 관리</span>
+					</h3>
+							<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -137,14 +138,14 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>전체 주문 </strong> 요청 내역</span>
-					</h4>
+					</h3>
 					
 					 
 						<fieldset>
 							<div class="control-group">
-								<select name = "searchType">
+								<select name = "searchType" class="searchSelect">
 		<option value="n" <c:out value="${cri.searchType == null?'selected':'' }"/>>---</option>
 		<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':'' }"/>>판매자 ID</option>
 		<option value="b" <c:out value="${cri.searchType eq 'b'?'selected':'' }"/>>상품번호</option>
@@ -155,11 +156,11 @@
 		<option value="ibp" <c:out value="${cri.searchType eq 'ibp'?'selected':'' }"/>>판매자 ID or 상품번호 or 상품명</option>
 	</select>
 	
-	<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
+	<input type="text" name="keyword" id="keywordInput" class="searchi" value="${cri.keyword }">
 	<button id='searchBtn'>Search</button>
 
 
-	<table>
+	<table class="productT">
 		<tr>
 			<th>회원번호</th>
 			<th>판매자 ID</th>
@@ -185,6 +186,7 @@
 		</c:forEach>
 	</table>
 					<ul class="pageLinks" >
+							<li>-</li>
 							<li id="main"><a href="${pageMaker.startPageNum }">처음으로</a></li>
 							<c:if test="${searchpageMaker.hasPrev }">
 								<li id="page"><a href="${searchpageMaker.startPageNum - 1 }">&laquo;이전</a></li>
@@ -198,6 +200,7 @@
 							<c:if test="${searchpageMaker.hasNext }">
 								<li id="page"><a href="${searchpageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 							</c:if>
+							<li>-</li>			
 			
 						</ul>
 					

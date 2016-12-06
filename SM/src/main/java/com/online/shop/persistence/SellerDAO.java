@@ -21,4 +21,7 @@ public interface SellerDAO {
 	//db에서 미승인된 판매자 회원 뽑아옴
 	public abstract List<SellerVO> selectAccess();
 	
+	// 판매자 승인 처리
+	public abstract int update(int sno);
+	
 }

@@ -45,4 +45,9 @@ public class ProductServiceImple implements ProductService {
 		return productDao.select(cri);
 	}
 
+	// 승인 요청 처리
+	@Override
+	public int productAcc(int pno) {
+		return productDao.update(pno);
+	}
 }

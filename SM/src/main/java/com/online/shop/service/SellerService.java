@@ -20,4 +20,7 @@ public interface SellerService {
 
 	//미승인 판매자 검색
 	public abstract List<SellerVO> searchAccess();
+	
+	// 판매자 승인 업데이트
+	public abstract int updateAcc(int sno);
 }

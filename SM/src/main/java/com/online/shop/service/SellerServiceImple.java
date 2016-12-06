@@ -46,4 +46,9 @@ public class SellerServiceImple implements SellerService {
 		return sellerDao.selectAccess();
 	}
 	
+	@Override
+	public int updateAcc(int sno) {
+		return sellerDao.update(sno);
+	}
+	
 }

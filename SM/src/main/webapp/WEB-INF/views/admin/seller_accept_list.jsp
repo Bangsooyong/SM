@@ -89,19 +89,18 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+			
+	<h3 class="titlem">
+				<span><a href="admin_bootstrap"><strong>관리자</strong> 페이지</a></span>
+			</h3> 
+			
 		</section>
 		<section class="main-content">
 			<div class="row">
 				<div class="span5">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -117,9 +116,11 @@
 								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+						</fieldset>
+					<h3 class="title">
+						<span class="text"><strong>회원</strong> 관리</span>
+					</h3>
+						<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -137,30 +138,30 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매자 </strong> 회원 목록</span>
-					</h4>
+					</h3>
 					
 					
 						<fieldset>
 							<div class="control-group">
-								<select name = "searchType">
+								<select name = "searchType" class="searchSelect" >
 		<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-		<option value="n" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>회원번호</option>
+		<option value="b" <c:out value="${cri.searchType eq 'n'?'selected':'' }"/>>회원번호</option>
 		<option value="i" <c:out value="${cri.searchType eq 'i'?'selected':'' }"/>>판매자 ID</option>
 		<option value="e" <c:out value="${cri.searchType eq 'e'?'selected':'' }"/>>이메일</option>
-		<option value="ni" <c:out value="${cri.searchType eq 'ni'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
-		<option value="ne" <c:out value="${cri.searchType eq 'ne'?'selected':'' }"/>>회원번호 or 이메일</option>
+		<option value="bi" <c:out value="${cri.searchType eq 'ni'?'selected':'' }"/>>회원번호 or 판매자 ID</option>
+		<option value="be" <c:out value="${cri.searchType eq 'ne'?'selected':'' }"/>>회원번호 or 이메일</option>
 		<option value="ie" <c:out value="${cri.searchType eq 'ie'?'selected':'' }"/>>판매자 ID or 이메일</option>
-		<option value="nie" <c:out value="${cri.searchType eq 'nie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
+		<option value="bie" <c:out value="${cri.searchType eq 'nie'?'selected':'' }"/>>회원번호 or 판매자 ID or 이메일</option>
 		
 		 
 	</select> 
-	<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
+	<input type="text" name="keyword" id="keywordInput" class="searchi" value="${cri.keyword }">
 	<button id='searchBtn'>Search</button>
 
 
-	<table>
+	<table class="sellert">
 		<tr>
 			<th>회원번호</th>
 			<th>판매자 ID</th>
@@ -168,15 +169,15 @@
 			<th>이메일</th>
 			<th>가입 승인</th>
 		</tr>
-		<c:forEach var="svo" items="${sellerList }">
+		<c:forEach var="svo" items="${sellerList }" varStatus="status">
 			<tr>
 				<td>${svo.s_no}</td>
 				<td>${svo.s_id}</td>
-				<td><fmt:formatDate value="${svo.s_reg }"
+				<td class="s_reg"><fmt:formatDate value="${svo.s_reg }"
 						pattern="yyyy-MM-dd HH:mm:ss" /></td>
 				<td>${svo.s_email}</td>
-				<td><c:if test="${svo.s_acc == 0 }">미승인</c:if>
-					<c:if test="${svo.s_acc == 1 }">승인</c:if>
+				<td class="s_acc"><c:if test="${svo.s_acc == 0 }"><span class="sp">미승인&nbsp;&nbsp;&nbsp;</span><button class="detail" name="accept">승인</button></c:if>
+								<c:if test="${svo.s_acc == 1 }">승인</c:if>
 				</td>
 			</tr>
 		</c:forEach>
@@ -184,6 +185,7 @@
 
 
 								<ul class="pageLinks">
+									<li>-</li>
 									<c:if test="${pageMaker.hasPrev }">
 										<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 									</c:if>
@@ -196,6 +198,7 @@
 									<c:if test="${pageMaker.hasNext }">
 										<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 									</c:if>
+									<li>-</li>
 
 								</ul>
 
@@ -304,8 +307,41 @@
 							+ "&keyword=" + encodeURI($('#keywordInput').val());
 				 	
 					});
-					 
+					
+					$('.detail').on("click", function() {
+						// s_no 값 찾기 	
+						var s_no = this.parentNode.parentNode.childNodes[1].innerHTML;
+						var s_acc = $(this).parent().children('.sp');
+						var btn = $(this);
+						console.log(s_no);
+						
+						   $.ajax({
+				                 type: "get",
+				                 url: "sellerAcc",
+				                 headers : {
+				                  'Accept' : 'application/json',
+				                  'Content-Type' : 'application/json'
+				               },
+				               dataType: "json",
+				                 data: {s_no: s_no},
+				                 success: function(data){
+				                    if (data == 1){	
+				                    	s_acc.text("승인");
+				                    	btn.hide();
+				                    
+				                    }
+				                 },
+				             });  
+					
+					
+					
+					});
+					
+						
+						
+			
 				});
+					 
 	</script>
 
 

@@ -30,6 +30,12 @@ public class ProdcutDAOImple implements ProductDAO {
 		return list;
 	}
 	
+	// product 승인문
+	@Override
+	public int update(int pno) {
+		return sqlSession.update(NAMESPACE + ".productAccept", pno);
+	}
+	
 	@Override
 
 	public List<ProductVO> selectAcc() {

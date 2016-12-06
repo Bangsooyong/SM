@@ -89,19 +89,17 @@
 			</div>
 		</section>
 		<section class="header_text sub">
-			<img class="pageBanner"
-				src="<c:url value='/resources/themes/images/pageBanner.png'/>"
-				alt="New products">
-			<h4>
-				<span>관리자 페이지</span>
-			</h4>
+			<h3 class="titlem">
+				<span><a href="admin_bootstrap"><strong>관리자</strong> 페이지</a></span>
+			</h3> 
+			
 		</section>
 		<section class="main-content">
 			<div class="row">
 				<div class="span5">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>판매</strong> 관리</span>
-					</h4>
+					</h3>
 					<form action="#" method="post">
 						<input type="hidden" name="next" value="/">
 						<fieldset>
@@ -117,9 +115,11 @@
 								<label class="control-label"><a href="#">전체 판매
 										통계</a></label>
 							</div>
-							<h4 class="title">
-								<span class="text"><strong>회원</strong> 관리</span>
-							</h4>
+							</fieldset>
+				<h3 class="title">
+					<span class="text"><strong>회원</strong> 관리</span>
+				</h3>
+							<fieldset>
 							<div class="control-group">
 								<label class="control-label"><a
 									href="seller_accept_list">판매자 회원 목록</a></label>
@@ -137,18 +137,18 @@
 					</form>
 				</div>
 				<div id="maindi" class="span7">
-					<h4 class="title">
+					<h3 class="title">
 						<span class="text"><strong>전체 </strong> 판매 내역</span>
-					</h4>
+					</h3>
 					<%-- 현재 페이지, 페이지 당 보여줄 게시글 개수를 서버로 보내주기 위해서, 사용자에게는 보이지 않지만, 서버로 보낼 정보를 양식 데이터로 저장하는 form --%>
 					<form id="pageForm">
 					<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
 					<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
 					</form>
 					<form action="#" method="post" class="form-stacked">
-						<fieldset>
+						<fieldset class="fieldb">
 							<div class="control-group">
-								<table>
+								<table class="buyft">
 									<tr>
 										<th>주문번호</th>
 										<th>주문날짜&emsp;</th>
@@ -163,11 +163,11 @@
 									</tr>
 									<c:forEach var="list" items="${list }">
 										<tr>
-											<td>${list.buy_no }</td>
-											<td><fmt:formatDate value="${list.buy_date }"
+											<td class="buy_no">${list.buy_no }</td>
+											<td class="buy_date"><fmt:formatDate value="${list.buy_date }"
 													pattern="yyyy년 MM월 dd일" />&emsp;&emsp;</td>
-											<td>${list.p_name }&emsp;(${list.o_cont })</td>
-											<td>${list.p_price }원</td>
+											<td class="p_name">${list.p_name }&emsp;(${list.o_cont })</td>
+											<td class="price">${list.p_price }원</td>
 											<td>판매자ID&emsp;</td>
 											<td>${list.b_id }&emsp;</td>
 											<td>배송완료</td>
@@ -177,6 +177,7 @@
 
 
 								<ul class="pageLinks">
+								<li>-</li>
 									<c:if test="${pageMaker.hasPrev }">
 										<li id="page"><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
 									</c:if>
@@ -189,6 +190,7 @@
 									<c:if test="${pageMaker.hasNext }">
 										<li id="page"><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
 									</c:if>
+								<li>-</li>
 
 								</ul>
 								

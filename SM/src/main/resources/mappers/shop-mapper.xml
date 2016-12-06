@@ -86,8 +86,14 @@
 			</if>
 		</if>
 	</sql>	
-	 
 	
+	<!-- 판매물 승인 쿼리문 -->
+	<update id="productAccept">
+		update S_TBL_PRODUCT set p_acc = 1 where p_no = #{p_no}
+	</update>
+	
+	 
+	<!-- 판매자 목록 페이지 쿼리문 -->
 	<!-- Read(select): 판매자 전체 검색 -->
 	<select id="sellerSelectAll" resultType="com.online.shop.domain.SellerVO">
 		select * from
@@ -138,7 +144,7 @@
 	<!-- option 제약조건 -->
 	<sql id="sellerSearch">
 		<if test="searchType != null">
-			<if test="searchType == 'n'.toString()">
+			<if test="searchType == 'b'.toString()">
 				where s_no like CONCAT(CONCAT('%', #{keyword}) , '%')
 			</if>
 			<if test="searchType == 'i'.toString()">
@@ -147,12 +153,12 @@
 			<if test="searchType == 'e'.toString()">
 				where s_email like CONCAT(CONCAT('%', #{keyword}) , '%')
 			</if>
-			<if test="searchType == 'ni'.toString()">
+			<if test="searchType == 'bi'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				s_id like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
 			</if>
-			<if test="searchType == 'ne'.toString()">
+			<if test="searchType == 'be'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				s_email like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
@@ -162,7 +168,7 @@
 				s_email like
 				CONCAT(CONCAT('%', #{keyword}) , '%'))
 			</if>
-			<if test="searchType == 'nie'.toString()">
+			<if test="searchType == 'bie'.toString()">
 				where (s_no like CONCAT(CONCAT('%', #{keyword}) , '%') OR
 				(s_id like CONCAT(CONCAT('%', #{keyword}) , '%')) OR
 				s_email like
@@ -170,6 +176,12 @@
 			</if>
 		</if>
 	</sql>	
+	
+	<!-- 판매자 가입 승인 쿼리 -->
+	<update id="sellerAccept">
+		update S_TBL_SELLER set s_acc = 1 where s_no = #{s_no}
+	</update>
+	
 	
 	<!-- 구매자 회원 관리 관련 커리문 -->
 	<!-- Read(select): 판매자 전체 검색 -->

@@ -57,4 +57,9 @@ public class SellerDAOImple implements SellerDAO {
 		return sqlSession.selectList(NAMESPACE + ".selectAccess");
 	}
 
+	@Override
+	public int update(int sno) {
+		return sqlSession.update(NAMESPACE + ".sellerAccept", sno);
+	}
+	
 }

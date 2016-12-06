@@ -20,6 +20,8 @@ public interface ProductService {
 	public abstract List<ProductVO> listSearchCriteria(SearchPageCriteria cri);
 	// 판매물 검색 목록의 갯수를 세는 service
 	public abstract int listSearchCount(SearchPageCriteria cri);
+	// 승인 요청 처리 service
+	public abstract int productAcc(int pno);
 
 
 }
