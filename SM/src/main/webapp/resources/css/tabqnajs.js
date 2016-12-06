@@ -3,11 +3,12 @@
  */
 
 $(document).ready(function() {
-
-		var idx = 
+	
 			$('#btnInsert').click(function() {
-				location = "insertQnA";
+				//location = "insertQnA";
+				window.open("insertQnA","newWindow","width=800, height=300, left=150, top=150");
 			});
+	
 			
 			$('#insertReply').click(function() {
 				var x = $(this).parent().attr('modData');
@@ -30,10 +31,11 @@ $(document).ready(function() {
 			
 			$('.updateReply1').click(function() {
 				var x = $(this).parent().attr('modData');
-				var frm = $('#updatefrm'+z);
+				var frm = $('#updatefrm'+x);
 				frm.attr('action', 'updateReply');
 				frm.attr('mehtod', 'post');
 				frm.submit();
+
 			})
 			
 			$('.qnaDetail').click(function () {
@@ -45,7 +47,7 @@ $(document).ready(function() {
 			
 			$('.deleteReply').click(function() {
 				var x = $(this).parent().attr('modData');
-				var frm = $('#updatefrm'+z);
+				var frm = $('#updatefrm'+x);
 				frm.attr('action', 'deleteReply');
 				frm.attr('mehtod', 'post');
 				frm.submit();

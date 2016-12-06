@@ -262,10 +262,9 @@
 				</tr>
 			</c:forEach>
 		</table>
-		
-	<br />
 	
-	<button id="btnReviewInsert">후기 작성</button>
+			<button type="button" id="btnReviewInsert">후기 작성</button>
+	
         </div> <!-- #tab2 -->
         
         <div id="tab3" class="tab_content">
@@ -279,7 +278,7 @@
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="<c:url value='/resources/css/tabqrjs.js' />"></script>
-	<script src="<c:url value='/resources/css/tabqajs.js' />"></script>
+	<script src="<c:url value='/resources/css/tabqnajs.js' />"></script>
+	<script src="<c:url value='/resources/css/tabrevjs.js' />"></script>
 </body>
 </html>

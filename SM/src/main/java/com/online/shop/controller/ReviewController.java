@@ -58,7 +58,7 @@ public class ReviewController {
 		
 	}
 	
-	@RequestMapping(value="insertReview", method=RequestMethod.POST)
+	//@RequestMapping(value="insertReview", method=RequestMethod.POST)
 	public String insertReviewPOST(ReviewVO vo) {
 		System.out.println("vo: "+ vo.getRev_score());
 		System.out.println("vo: " + vo.getRev_cont());
@@ -69,7 +69,7 @@ public class ReviewController {
 		return "redirect:review";
 	}
 	
-	@RequestMapping(value="insertReply", method=RequestMethod.POST)
+	//@RequestMapping(value="insertReply", method=RequestMethod.POST)
 	public String insertReplyPost(ReviewRVO vo, RedirectAttributes attr) {
 
 		//int result = dao.insertRevReply(vo);
@@ -91,15 +91,15 @@ public class ReviewController {
 	}
 	
 	
-	@RequestMapping(value="updateReply", method=RequestMethod.POST)
+	//@RequestMapping(value="updateReply", method=RequestMethod.POST)
 	public String updateReplyPOST(ReviewRVO vo) {
 		//System.out.println("updateReply//" + vo.getS_id()+"//"+vo.getQna_no()+"//"+vo.getQna_r_cont());
 		int result = dao.updateRevReply(vo);
 		System.out.println("result: " +result);
-		return "redirect:qna";
+		return "redirect:review";
 	}
 	
-	@RequestMapping(value="deleteReply", method=RequestMethod.POST)
+	//@RequestMapping(value="deleteReply", method=RequestMethod.POST)
 	public String deleteReplyPOST(ReviewRVO vo) {
 		//System.out.println("updateReply//" + vo.getS_id()+"//"+vo.getQna_no()+"//"+vo.getQna_r_cont());
 		int result = dao.deleteRevReply(vo);

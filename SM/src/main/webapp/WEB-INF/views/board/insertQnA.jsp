@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="insertQnA" method="POST">
+	<form action="insertQnA" id="qnafrm" name="frmNm" method="POST" onsubmit="submit()">
 		<table>
 			<tr>
 				<th scope="row">문의 유형 &emsp;</th>
@@ -49,14 +49,48 @@
 
 		</table>
 		
-<!-- 		<input type="hidden" name="qna_no" value="0" /> -->
 		<input type="hidden" name="b_id" value="buyer1" />
 		<input type="hidden" name="p_no" value="0" />
-<!-- 		<input type="hidden" name="qna_reply" value = "0" /> -->
 		
-		<div>
-			<input type="submit" value="등록">
-		</div>
+		<input type="submit" id="submitQnA" value="등록" >
+		<iframe id="ifrm" name = "ifrm" style="display: none;"></iframe>
+
 	</form>
+	
+	<button type="button" id = "btn_submit" >닫기</button>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+
+		$(document).ready(function() {
+			
+			$('#submitQnA').click(function() {
+
+/* 				 document.forms['frmNm'].submit(true);
+				 window.opener.location.reload();
+				 self.close(); */
+				// $('#qnafrm').submit();
+				/*  send();
+				 if(send() == true) {
+					 window.open('','_self').close();
+				 } */
+				jQuery('#qnafrm').submit();
+				 window.close();
+			})
+			
+			function send(){
+				jQuery('#qnafrm').submit();
+				return true;
+			}
+			
+			$('#btn_submit').click(function() {
+				/*window.close(); */
+				 document.forms['frmNm'].submit();
+				 window.opener.location.reload();
+				 window.open('','_self').close();
+			})
+		});
+	</script>
 </body>
 </html>
