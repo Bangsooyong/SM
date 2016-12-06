@@ -12,9 +12,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.online.shop.domain.QnaRVO;
 import com.online.shop.domain.QnaVO;
+import com.online.shop.domain.ReviewRVO;
+import com.online.shop.domain.ReviewVO;
 import com.online.shop.pageutil.PageCriteria;
 import com.online.shop.pageutil.PageMaker;
 import com.online.shop.persistence.QnADAO;
+import com.online.shop.persistence.RevDAO;
 
 @Controller
 @RequestMapping(value="/board")
@@ -22,6 +25,9 @@ public class QnAController {
 	
 	@Autowired
 	private QnADAO dao;
+	
+	@Autowired
+	private RevDAO daoR;
 	
 	@RequestMapping(value="qna", method=RequestMethod.GET)
 	public void qndBoard(Integer page, QnaVO vo, Model model) {
@@ -39,6 +45,7 @@ public class QnAController {
 		//List<QnaRVO> listR = dao.selectQnaR(vo);
 		List<QnaRVO> listR = new ArrayList<>();
 		for(QnaVO volist : list) {
+
 			if(volist.getQna_reply() == 1) {
 			QnaRVO rvo = dao.selectQnaR(volist);
 			listR.add(rvo);
@@ -55,48 +62,27 @@ public class QnAController {
 		model.addAttribute("pageMaker", maker);
 	}
 	
-	@RequestMapping(value="qa", method=RequestMethod.GET)
-	public void qaMain(Integer page, QnaVO vo, Model model) {
-		// 페이지 criteria 생성자 만들기
-		PageCriteria c = new PageCriteria();
-		if (page != null){
-			c.setPage(page);
-		}
-		
-		List<QnaVO> list = dao.selectQna(c);
-
-		List<QnaRVO> listR = new ArrayList<>();
-		for(QnaVO volist : list) {
-			if(volist.getQna_reply() == 1) {
-			QnaRVO rvo = dao.selectQnaR(volist);
-			listR.add(rvo);
-			}
-		}
-		model.addAttribute("listQnA", list);
-		model.addAttribute("listQnAR", listR);
-		
-		// 페이지 메이커 생성
-		PageMaker maker = new PageMaker();
-		maker.setCrieria(c);
-		maker.setTotalCount(dao.getNumOfRecordsQna());
-		maker.setPageData();
-		model.addAttribute("pageMaker", maker);
-	}
-
 	
-	@RequestMapping(value="insertQnA", method=RequestMethod.GET)
+	//@RequestMapping(value="insertQnA", method=RequestMethod.GET)
 	public void insertQnA() {
 		
 	}
 	
-	@RequestMapping(value="insertQnA", method=RequestMethod.POST)
-	public String insertQnAPOST(QnaVO vo) {
-
-		int result = dao.insertQnA(vo);
-		return "redirect:qna";
+	//@RequestMapping(value="insertReview", method=RequestMethod.GET)
+	public void insertReview() {
+		
 	}
 	
-	@RequestMapping(value="insertReply", method=RequestMethod.POST)
+	//@RequestMapping(value="insertQnA", method=RequestMethod.POST)
+	public void insertQnAPOST(QnaVO vo) {
+		System.out.println("asdasd"+vo.getQna_cont());
+
+		//int result = dao.insertQnA(vo);
+		//return "redirect:qna";
+	}
+	
+	
+	//@RequestMapping(value="insertReply", method=RequestMethod.POST)
 	public String insertReplyPost(QnaRVO vo, RedirectAttributes attr) {
 		int result=0;
 
@@ -116,7 +102,7 @@ public class QnAController {
 		return "redirect:qna";
 	}
 	
-	@RequestMapping(value="updateReply", method=RequestMethod.POST)
+	//@RequestMapping(value="updateReply", method=RequestMethod.POST)
 	public String updateReplyPOST(QnaRVO vo) {
 		//System.out.println("updateReply//" + vo.getS_id()+"//"+vo.getQna_no()+"//"+vo.getQna_r_cont());
 		int result = dao.updateQnAR(vo);
@@ -124,7 +110,7 @@ public class QnAController {
 		return "redirect:qna";
 	}
 	
-	@RequestMapping(value="deleteReply", method=RequestMethod.POST)
+	//@RequestMapping(value="deleteReply", method=RequestMethod.POST)
 	public String deleteReplyPOST(QnaRVO vo) {
 		//System.out.println("updateReply//" + vo.getS_id()+"//"+vo.getQna_no()+"//"+vo.getQna_r_cont());
 		int result = dao.deleteQnAR(vo);

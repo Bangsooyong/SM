@@ -128,8 +128,6 @@
 				</tr>
 			</c:forEach>
 
-
-
 		</table>
 
 	</div>
@@ -160,7 +158,8 @@
 			<input type="hidden" name="page" value="${pageMaker.criteria.page }" />
 			<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
 		</form>
-
+	
+<a href="#" onclick="window.open('insertQnA', 'newWindow','width=800, height=300'); return false">새창</a>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -168,9 +167,10 @@
 		$(document).ready(function() {
 		var x = 0; //로그인버튼으로 활성 비활성
 		var y = 0; //답변 게시판 활성 비활성
-		var idx = 
+		
 			$('#btnInsert').click(function() {
-				location = "insertQnA";
+				/* location = "insertQnA"; */
+				window.open("insertQnA","newWindow","width=800, height=300, left=150, top=150");
 			});
 			
 			$('#insertReply').click(function() {
@@ -204,15 +204,7 @@
 				var x = $(this).attr('modData');
 				
 				$('.modify'+x).toggle();
-/*  				if(y == 0) {
-					$('.modify'+x).show();
-					y = 1;
-					
-					} else {
-					$('.modify'+x).hide();
-					y = 0;
-					}; */
-					
+
 			});
 			
 			$('.deleteReply').click(function() {

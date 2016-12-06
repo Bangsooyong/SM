@@ -13,9 +13,7 @@
 .modify {
 	display: none;
 }
-.qnaDetail {
-	border: none;
-	color: blue;
+
 }.pageLinks li {
 	display: inline;
 }
@@ -127,7 +125,7 @@
 	
 	<br />
 	
-	<button id="btnReviewInsert">후기 작성</button>
+	<button id="btnReviewInsert1">후기 작성</button>
 	
 	<!-- 페이지 링크  -->
 	<ul class="pageLinks">
@@ -160,8 +158,8 @@
 	<script>
 	$(document).ready(function() {
 		
-		$('#btnReviewInsert').click(function() {
-			location = "insertReview";
+		$('#btnReviewInsert1').click(function() {
+			//location = "insertReview";
 		})
 		
 		$('.insertReply').click(function() {
@@ -230,8 +228,6 @@
 		} else if ('${insert_review_reply}' == 'fail') {
 			alert('답변 등록  실패!');
 		}
-		
-	
 
 	</script>
 
