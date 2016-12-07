@@ -9,6 +9,7 @@ public class CartVO {
 	private int buy_cnt;//선택한수량
 	private String o_cont;//선택한옵션내용
 	private int buy_no;//주문번호는 주문테이블에 먼저 insert된후 카트테이블에 insert해줌
+	private String s_id;
 	
 	public CartVO() {}
 
@@ -74,6 +75,14 @@ public class CartVO {
 
 	public void setBuy_no(int buy_no) {
 		this.buy_no = buy_no;
+	}
+
+	public String getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(String s_id) {
+		this.s_id = s_id;
 	}
 	
 	

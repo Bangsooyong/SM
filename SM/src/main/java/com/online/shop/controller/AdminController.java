@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.online.shop.domain.BuyerVO;
+import com.online.shop.domain.CartandBuy;
 import com.online.shop.domain.ProductVO;
 import com.online.shop.domain.SellerVO;
 import com.online.shop.pageutil.PageCriteria;
@@ -71,10 +72,21 @@ public class AdminController {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
 		String today = sdf.format(date);
-		List<BuyVO> list = dao.selectByBuy();
-		List<BuyVO> list2 = dao.selectByBuy2();
-		List<BuyVO> list3 = dao.selectByBuyRequest();
+		
+		//List<BuyVO> list = dao.selectByBuy();
+		//배송완료인 내역만 뽑아옴 buy테이블 cart테이블 모두를 통합함
+		List<CartandBuy> list =dao.selectBybuymain();
+		
+		//주문요청인상태 내역만 뽑아옴
+		//List<BuyVO> list2 = dao.selectByBuy2();
+		List<CartandBuy> list2 =dao.selectBybuymain2();
+		
+		//전체주문요청내역 뽑아옴
+		//List<BuyVO> list3 = dao.selectByBuyRequest();
+		List<CartandBuy> list3 =dao.selectBysubr();
+		
 		List<BuyVO> list4 = dao.selecyByBuyToday(today);
+		
 		List<SellerVO> list5 = sellerservice.searchAccess();
 		List<ProductVO> list6 = productservice.selectAcc();
 		List<SellerVO> list7 = sellerservice.read();
@@ -86,6 +98,7 @@ public class AdminController {
 		model.addAttribute("listBuyReq", list3);
 		model.addAttribute("buyTodaySize", list4.size());
 		model.addAttribute("buyToday", list4);
+		
 		model.addAttribute("accSize", list5.size());
 		model.addAttribute("listAcc", list5);
 		model.addAttribute("pSize", list6.size());
@@ -105,7 +118,7 @@ public class AdminController {
 			c.setPage(page);
 		}
 		
-		List<BuyVO> list = dao.selectByBuyr(c);
+		List<CartandBuy> list =dao.selectBysubr();
 		model.addAttribute("list", list);
 		
 		PageMaker maker = new PageMaker();
@@ -125,7 +138,7 @@ public class AdminController {
 			c.setPage(page);
 		}
 		
-		List<BuyVO> list = dao.selectByBuyf(c);
+		List<CartandBuy> list = dao.selectBysubf();
 		logger.info("list size: " + list.size());
 		model.addAttribute("list", list);
 		

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.online.shop.domain.BuyVO;
 import com.online.shop.domain.CartVO;
+import com.online.shop.domain.CartandBuy;
 import com.online.shop.pageutil.PageCriteria;
 import com.online.shop.pageutil.SearchPageCriteria;
 
@@ -25,8 +26,18 @@ public class AdminDAOImple implements AdminDAO {
 	}
 	
 	@Override
+	public List<CartandBuy> selectBybuymain() {
+		return sqlSession.selectList(NAMEPACE+".selectBybuymain");
+	}
+	
+	@Override
 	public List<BuyVO> selectByBuy2() {
 		return sqlSession.selectList(NAMEPACE+".selectByBuy2");
+	}
+	
+	@Override
+	public List<CartandBuy> selectBybuymain2() {
+		return sqlSession.selectList(NAMEPACE+".selectBybuymain2");
 	}
 	
 	@Override
@@ -35,9 +46,20 @@ public class AdminDAOImple implements AdminDAO {
 	}
 	
 	@Override
+	public List<CartandBuy> selectBysubr() {
+		return sqlSession.selectList(NAMEPACE+".selectBysubr");
+	}
+	
+	@Override
 	public List<BuyVO> selectByBuyf() {
 		return sqlSession.selectList(NAMEPACE+".selectByBuyf");
 	}
+	
+	@Override
+	public List<CartandBuy> selectBysubf() {
+		return sqlSession.selectList(NAMEPACE+".selectBybuysubf");
+	}
+
 	
 	// 레코드 전체 수를 검색 하는 dao
 	@Override

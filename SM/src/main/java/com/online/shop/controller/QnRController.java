@@ -79,13 +79,13 @@ public class QnRController {
 	//구매자가 qna를 등록하기위한 페이지 띄움
 	@RequestMapping(value="insertQnA", method=RequestMethod.GET)
 	public void insertQnA() {
-		
+		System.out.println("asdasd");
 	}
 	
 	//구매자가 qna를 작성하고 등록버튼을 클릭했을때 처리
 	@RequestMapping(value="insertQnA", method=RequestMethod.POST)
 	public void insertQnAPOST(QnaVO vo) {
-		System.out.println("qna");
+		System.out.println("qna: " + vo.getQna_cont());
 		//int result = dao.insertQnA(vo);
 		//return "redirect:qnr";
 	}
