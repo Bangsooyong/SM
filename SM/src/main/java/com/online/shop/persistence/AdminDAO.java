@@ -4,15 +4,27 @@ import java.util.List;
 
 import com.online.shop.domain.BuyVO;
 import com.online.shop.domain.CartVO;
+import com.online.shop.domain.CartandBuy;
 import com.online.shop.pageutil.PageCriteria;
 import com.online.shop.pageutil.SearchPageCriteria;
 
 public interface AdminDAO {
+	//판매완료내역 5건 까지만 받아옴
 	public abstract List<BuyVO> selectByBuy();
+	public abstract List<CartandBuy> selectBybuymain();
+	
+	//주문요청내역 5건 까지만 받아옴
 	public abstract List<BuyVO> selectByBuy2();
+	public abstract List<CartandBuy> selectBybuymain2();
+	
+	//전체주문요청내역
 	public abstract List<BuyVO> selectByBuyr();
+	public abstract List<CartandBuy> selectBysubr();
+	
+	//전체판매완료내역
 	public abstract List<BuyVO> selectByBuyf();
-
+	public abstract List<CartandBuy> selectBysubf();
+	
 	public abstract List<BuyVO> selectByBuyRequest();
 	public abstract List<BuyVO> selecyByBuyToday(String buy_date);
 

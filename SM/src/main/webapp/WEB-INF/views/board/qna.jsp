@@ -87,7 +87,7 @@
 						<form id = "frm${state.index }" method="post">
 						&emsp;&emsp;&emsp;<b>판매자 답변</b><br/>
 							<textarea cols="25" rows="3" name="qna_r_cont" id="replyCont"
-								placeholder="답변내용입력" required></textarea>
+								placeholder="답변내용입력" required style="overflow: hidden; resize:none;"></textarea>
 							
 							<input type="hidden" name="s_id" id="s_id" value="sellerId" /> 
 							<input type="hidden" name="qna_no" id="qna_no" value="${list.qna_no }" />
