@@ -238,7 +238,7 @@
 							</div>
 							
 
-							<hr>
+							
 
 						</fieldset>
 						
@@ -250,7 +250,9 @@
 							name="perPage" value="${pageMaker.criteria.perPage }" />
 
 					</form>
+					<hr>
 				</div>
+				
 			</div>
 		</section>
 		<section id="footer-bar">

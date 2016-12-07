@@ -354,10 +354,11 @@
 							</div>
 
 
-							<hr>
+							
 
 						</fieldset>
 					</form>
+					<hr>
 				</div>
 			</div>
 		</section>

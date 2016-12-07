@@ -215,11 +215,12 @@
 							</div>
 							
 
-							<hr>
+							
 
 						</fieldset>
-				
+				<hr>
 				</div>
+				
 			</div>
 		</section>
 		<section id="footer-bar">

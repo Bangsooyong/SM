@@ -234,10 +234,10 @@
 		<button id="close">닫기</button>
 	</div>
 
-							<hr>
+						
 
 						</fieldset>
-				
+					<hr>
 				</div>
 			</div>
 		</section>

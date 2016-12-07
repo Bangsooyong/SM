@@ -198,11 +198,13 @@
 							
 							</div>
 							
-							<hr>
+							
 
 						</fieldset>
 					</form>
+					<hr>
 				</div>
+				
 			</div>
 		</section>
 		<section id="footer-bar">
